@@ -1,0 +1,51 @@
+/*
+ * Meddleware brand overrides for the VitePress default theme.
+ * Brand ramp = Oxblood (primary) with Indigo/Gold accents, sourced from
+ * @meddleware/design-tokens so the docs stay in lockstep with the apps.
+ */
+
+:root {
+  /* Brand = Oxblood */
+  --vp-c-brand-1: var(--mw-oxblood-500);
+  --vp-c-brand-2: var(--mw-oxblood-400);
+  --vp-c-brand-3: var(--mw-oxblood-400);
+  --vp-c-brand-soft: var(--mw-oxblood-100);
+
+  /* Home hero: Oxblood → Indigo wash, Gold glow */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    var(--mw-oxblood-500),
+    var(--mw-indigo-500)
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    120deg,
+    var(--mw-oxblood-400),
+    var(--mw-gold-500)
+  );
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  /* Dark mode: lightened Oxblood for legibility (mirrors --accent in tokens) */
+  --vp-c-brand-1: #b0465a;
+  --vp-c-brand-2: var(--mw-oxblood-400);
+  --vp-c-brand-3: var(--mw-oxblood-500);
+  --vp-c-brand-soft: color-mix(in srgb, var(--mw-oxblood-500) 30%, transparent);
+
+  --vp-home-hero-name-background: linear-gradient(
+    120deg,
+    #b0465a,
+    var(--mw-indigo-300)
+  );
+  --vp-home-hero-image-background-image: linear-gradient(
+    120deg,
+    var(--mw-oxblood-500),
+    var(--mw-gold-400)
+  );
+}
+
+/* Gold for "tip" custom blocks keeps the accent role consistent with the apps. */
+.vp-doc .custom-block.tip {
+  border-color: var(--mw-gold-500);
+}

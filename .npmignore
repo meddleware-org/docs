@@ -1,0 +1,6 @@
+# Generated at build time (TypeDoc autodoc) — not part of the published source.
+docs/**/api/
+# Build output + caches.
+dist/
+docs/.vitepress/dist/
+docs/.vitepress/cache/

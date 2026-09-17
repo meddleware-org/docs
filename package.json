@@ -1,0 +1,50 @@
+{
+  "name": "@meddleware/docs",
+  "version": "0.0.1",
+  "description": "Meddleware user documentation site (docs.meddleware.co.uk) — VitePress. Explains the DAO, Walrus Storage, Sealed Storage, and Access Gate: what each is, how to use it, and when.",
+  "author": "Meddleware <dev@meddleware.co.uk>",
+  "license": "0BSD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meddleware-org/docs.git"
+  },
+  "type": "module",
+  "files": [
+    "docs",
+    "scripts",
+    "tsconfig.json",
+    "tsconfig.typedoc.json",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "gen:api": "node scripts/gen-api.mjs",
+    "dev": "npm run gen:api && vitepress dev docs",
+    "build": "npm run gen:api && vitepress build docs",
+    "preview": "vitepress preview docs",
+    "type-check": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@meddleware/design-tokens": "^0.1.2"
+  },
+  "devDependencies": {
+    "@meddleware/nft-gate-client": "^0.0.6",
+    "@meddleware/seal-client": "^0.0.3",
+    "@meddleware/walrus-client": "^0.0.11",
+    "@mysten/seal": "^1.4.7",
+    "@mysten/sui": "^2.30.0",
+    "@mysten/walrus": "^0.7.0",
+    "@types/node": "~24.12.2",
+    "typedoc": "^0.28.0",
+    "typedoc-plugin-markdown": "^4.4.0",
+    "typedoc-vitepress-theme": "^1.1.0",
+    "typescript": "~6.0.0",
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.40"
+  },
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  }
+}

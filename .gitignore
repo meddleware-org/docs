@@ -1,0 +1,8 @@
+node_modules
+dist
+docs/.vitepress/dist
+docs/.vitepress/cache
+# Generated TypeDoc reference (produced by `npm run gen:api` at build time)
+docs/**/api/
+*.log
+.DS_Store

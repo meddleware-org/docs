@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": []
+  },
+  "//": "Used only by scripts/gen-api.mjs (TypeDoc). Includes the installed SDK sources so the TS program has inputs; TypeDoc's entryPoints then select what is documented.",
+  "include": [
+    "node_modules/@meddleware/seal-client/src",
+    "node_modules/@meddleware/walrus-client/src",
+    "node_modules/@meddleware/nft-gate-client/src"
+  ]
+}

@@ -5,7 +5,7 @@ Two audiences: **operators** who run gates, and **buyers** who hold passes.
 ## For operators
 
 Manage gates in the [operator console](https://sui-access-gate.meddleware.co.uk). You'll need a
-[Sui wallet](/getting-started).
+[Sui wallet](/blockchain/sui/getting-started).
 
 ### Create a gate
 
@@ -53,7 +53,7 @@ receive the pass NFT. Overpayment is refunded automatically.
 
 ### Use a pass to unlock encrypted content
 
-If content was sealed to a gate with [Sealed Storage](/sealed-storage/), holding a valid pass lets you
+If content was sealed to a gate with [Sealed Storage](/blockchain/sui/sealed-storage/), holding a valid pass lets you
 **decrypt** it — provide your pass when unlocking.
 
 ## Common questions

@@ -44,7 +44,7 @@ interface StorageCost {
 ## Gated relay: access-proof wire format
 
 When uploading through the **gated** relay, the client proves NFT ownership with a signed proof. The
-wire format is shared with the [Access Gate](/access-gate/) gateway:
+wire format is shared with the [Access Gate](/blockchain/sui/access-gate/) gateway:
 
 - **Personal message signed by the wallet:** `nft-gate:access:<nonce>`
 - **Proof token** (sent as `Authorization: Bearer …`): base64 of
@@ -54,7 +54,7 @@ wire format is shared with the [Access Gate](/access-gate/) gateway:
 ```
 
 The relay verifies the signature and on-chain pass ownership, then accepts the upload. See the
-[Access Gate reference](/access-gate/reference) for the full protocol.
+[Access Gate reference](/blockchain/sui/access-gate/reference) for the full protocol.
 
 ## SDK API
 
@@ -65,5 +65,5 @@ queries, and relay access helpers — is generated here:
 
 ::: tip Using the SDK in your own app?
 This reference lists the shapes; the **how-to** for integrating the SDK (and self-hosting a relay) is
-`dev.meddleware.co.uk` material, planned in the package's own docs.
+covered in the forthcoming developer documentation.
 :::

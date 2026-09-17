@@ -23,7 +23,7 @@ You do **not** need to connect a wallet to browse it — everything shown is pub
 - You hold a platform admin capability and want to confirm the tool **detects** it (see
   [Governance](#governance)).
 
-If you want to *create* a gate, that's the [Access Gate](/access-gate/) tool, not this one.
+If you want to *create* a gate, that's the [Access Gate](/blockchain/sui/access-gate/) tool, not this one.
 
 ## The tabs
 
@@ -62,7 +62,7 @@ The console finds gates by looking up the **admin capabilities** the treasury ow
 gate each one controls — rather than replaying historical events. This matters because Sui testnet
 **prunes** old events after a few months, which would otherwise make a naive event-based count read
 as zero. The capability-based approach always reflects live reality. (The technical details are in
-[Reference](/dao/reference).)
+[Reference](/blockchain/sui/dao/reference).)
 
 ## Commission, in one line
 

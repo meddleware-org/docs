@@ -2,6 +2,19 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.3] — 2026-09-17
+
+Restructured to a blockchain-agnostic architecture with Sui as the first active chain.
+
+- All Sui content moved under `/blockchain/sui/` URL hierarchy
+- New blockchain-agnostic home page — hero + Sui card + "more blockchains coming soon" card
+- New `/blockchain/` chain picker landing page
+- New `/blockchain/sui/` Sui section landing page
+- Navbar: `Blockchain` dropdown (Active / Coming soon groups) + `Sui Tools` dropdown
+- Sidebar: per-path keyed — full Sui sidebar under `/blockchain/sui/`, minimal chain sidebar under `/blockchain/`
+- Removed all references to the inactive `dev.meddleware.co.uk` URL; replaced with "forthcoming developer documentation"
+- Bumped gen-api autodoc output paths to match new `/blockchain/sui/` hierarchy
+
 ## [0.0.1] — 2026-09-17
 
 Initial release. VitePress documentation site for `docs.meddleware.co.uk` covering the four

@@ -1,7 +1,7 @@
 # Walrus Storage — using it
 
 A walkthrough of the [Walrus Storage app](https://sui-walrus.meddleware.co.uk). You'll need a
-[Sui wallet with a little SUI](/getting-started).
+[Sui wallet with a little SUI](/blockchain/sui/getting-started).
 
 ## Upload a blob
 
@@ -9,7 +9,7 @@ A walkthrough of the [Walrus Storage app](https://sui-walrus.meddleware.co.uk). 
 2. Go to the **Upload** tab and **choose a file**.
 3. Pick a **storage duration** (in epochs). The app estimates the cost — longer durations cost more
    up front.
-4. If you hold an [Access Gate](/access-gate/) pass for the gated relay, the app detects it and uses
+4. If you hold an [Access Gate](/blockchain/sui/access-gate/) pass for the gated relay, the app detects it and uses
    the gated relay (a capped **tip** applies); otherwise it uses the public relay.
 5. **Confirm** the transaction(s) in your wallet. Uploading registers the blob on Sui and stores the
    bytes on Walrus.
@@ -39,12 +39,12 @@ re-uploaded.
 ## Read a blob back
 
 A blob ID resolves through a Walrus **aggregator** over plain HTTP. Anyone with the ID can fetch the
-bytes (blobs are public unless you encrypted them first with [Sealed Storage](/sealed-storage/)).
+bytes (blobs are public unless you encrypted them first with [Sealed Storage](/blockchain/sui/sealed-storage/)).
 
 ## Common questions
 
 **Is my file private?** No — Walrus blobs are public. If you need privacy, use
-[Sealed Storage](/sealed-storage/), which encrypts before storing.
+[Sealed Storage](/blockchain/sui/sealed-storage/), which encrypts before storing.
 
 **Why did I sign more than once?** Registering and storing can involve more than one step; the app
 guides you through each wallet prompt.

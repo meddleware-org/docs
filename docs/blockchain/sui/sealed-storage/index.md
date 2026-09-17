@@ -1,6 +1,6 @@
 # Sealed Storage
 
-Encrypt a file in your browser, store the ciphertext on [Walrus](/walrus-storage/), and let only the
+Encrypt a file in your browser, store the ciphertext on [Walrus](/blockchain/sui/walrus-storage/), and let only the
 right people decrypt it — with the access rule enforced **on-chain**. Open the app at
 [sui-seal.meddleware.co.uk](https://sui-seal.meddleware.co.uk).
 
@@ -10,7 +10,7 @@ Sealed Storage combines three things:
 
 - **[Seal](https://seal-docs.wal.app/)** — threshold encryption where the decryption keys are held by
   a committee of independent **key servers**, not by any single party (or by Meddleware).
-- **[Walrus](/walrus-storage/)** — decentralised storage for the encrypted bytes.
+- **[Walrus](/blockchain/sui/walrus-storage/)** — decentralised storage for the encrypted bytes.
 - A **policy** — an on-chain rule that decides who is allowed to decrypt.
 
 You encrypt under a policy, share a small **manifest** (a pointer), and anyone who satisfies the
@@ -20,11 +20,11 @@ policy can decrypt. Nobody else can — even though the ciphertext itself is sto
 
 - You want to store something **private** on public/decentralised storage.
 - You want access tied to an **on-chain condition** — for example, "only holders of this
-  [Access Gate](/access-gate/) pass" or "only after a certain time".
+  [Access Gate](/blockchain/sui/access-gate/) pass" or "only after a certain time".
 - You want to **share** encrypted content without running your own key server or handing anyone a raw
   key.
 
-When plain [Walrus Storage](/walrus-storage/) is enough: if the content isn't sensitive, skip
+When plain [Walrus Storage](/blockchain/sui/walrus-storage/) is enough: if the content isn't sensitive, skip
 encryption.
 
 ## How it works, in three steps
@@ -48,7 +48,7 @@ encryption.
 Sealing produces a small **manifest** — the portable pointer you share or save. It records the policy
 type, the encryption **identity**, the Walrus blob ID, the network, and any non-secret parameters
 (like which gate). It contains **no secrets**; it's just enough to locate the ciphertext and rebuild
-the on-chain access check. See [Reference](/sealed-storage/reference).
+the on-chain access check. See [Reference](/blockchain/sui/sealed-storage/reference).
 
 ## Who holds the keys?
 
@@ -63,6 +63,6 @@ committee is available — the app shows a clear notice until then.
 
 ## Next
 
-- **[Using it](/sealed-storage/using)** — encrypt, share, and decrypt step by step.
-- **[Policies](/sealed-storage/policies)** — the access rules you can choose, and when to use each.
-- **[Reference](/sealed-storage/reference)** — manifest shape and the SDK API.
+- **[Using it](/blockchain/sui/sealed-storage/using)** — encrypt, share, and decrypt step by step.
+- **[Policies](/blockchain/sui/sealed-storage/policies)** — the access rules you can choose, and when to use each.
+- **[Reference](/blockchain/sui/sealed-storage/reference)** — manifest shape and the SDK API.

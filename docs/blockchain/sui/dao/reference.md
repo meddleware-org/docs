@@ -88,7 +88,7 @@ When it ships, proposals will be read from its registry; the console's display s
 stable so wiring it in won't change the UI.
 
 ::: tip Developer note
-Full SDK/contract API reference (entry functions, exhaustive event schemas) is being consolidated for
-`dev.meddleware.co.uk`. The [Access Gate reference](/access-gate/reference) already lists the gate
-contract's entry points and events, which is the on-chain source these DAO views read.
+Full SDK/contract API reference (entry functions, exhaustive event schemas) is covered in the
+forthcoming developer documentation. The [Access Gate reference](/blockchain/sui/access-gate/reference) already
+lists the gate contract's entry points and events, which is the on-chain source these DAO views read.
 :::

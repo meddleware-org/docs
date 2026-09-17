@@ -21,9 +21,9 @@ const docsRoot = join(root, 'docs')
 
 // Each SDK → where its generated reference lands under docs/.
 const targets = [
-  { pkg: '@meddleware/walrus-client', out: 'walrus-storage/api', name: 'Walrus client API' },
-  { pkg: '@meddleware/seal-client', out: 'sealed-storage/api', name: 'Seal client API' },
-  { pkg: '@meddleware/nft-gate-client', out: 'access-gate/api', name: 'NFT-gate client API' },
+  { pkg: '@meddleware/walrus-client', out: 'blockchain/sui/walrus-storage/api', name: 'Walrus client API' },
+  { pkg: '@meddleware/seal-client', out: 'blockchain/sui/sealed-storage/api', name: 'Seal client API' },
+  { pkg: '@meddleware/nft-gate-client', out: 'blockchain/sui/access-gate/api', name: 'NFT-gate client API' },
 ]
 
 // Resolve the SDK's TypeScript entry. These packages export their `.` as `./src/index.ts`

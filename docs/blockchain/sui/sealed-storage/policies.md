@@ -7,7 +7,7 @@ encrypt. Each policy is a self-contained on-chain module with a matching option 
 
 ### Access-gate NFT (`nft-gate`)
 
-**Only holders of a valid pass for a chosen [Access Gate](/access-gate/) can decrypt.**
+**Only holders of a valid pass for a chosen [Access Gate](/blockchain/sui/access-gate/) can decrypt.**
 
 - **Encrypt with:** the gate's object ID.
 - **Decrypt with:** the pass NFT you hold for that gate (and whether it's soulbound).
@@ -47,6 +47,6 @@ policy picker automatically as they ship.
 
 ::: tip Developer note
 The mechanics of writing a new policy (the on-chain `seal_approve` module + the matching client
-provider) are `dev.meddleware.co.uk` material, planned in the `seal-policies` and `seal-client`
-package docs. The [Reference](/sealed-storage/reference) lists the current policy identifiers.
+provider) are covered in the forthcoming developer documentation. The
+[Reference](/blockchain/sui/sealed-storage/reference) lists the current policy identifiers.
 :::

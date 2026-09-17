@@ -1,4 +1,4 @@
-# Getting started
+# Getting started with Sui
 
 Everything here runs on [Sui](https://sui.io). You interact with each tool through its hosted web app
 using a **Sui wallet**. This page covers the basics that apply to all of them.
@@ -41,7 +41,7 @@ Each tool has its own subdomain, and they're all linked from the **tools hub**:
 Click **Connect** and approve the connection in your wallet. The tools hub shares one wallet
 connection across every tool embedded in it.
 
-- **Browsing** the [DAO console](/dao/) needs **no wallet** — it's read-only.
+- **Browsing** the [DAO console](/blockchain/sui/dao/) needs **no wallet** — it's read-only.
 - **Uploading, encrypting, buying, or managing** needs a connected wallet to sign transactions.
 
 ## 4. Understand what's on-chain
@@ -54,6 +54,6 @@ the chain says. Anything an app displays can be independently verified on a
 
 ## Next steps
 
-- **[How the tools fit together](/architecture)** — the big picture.
-- Jump into a tool: [DAO](/dao/) · [Walrus Storage](/walrus-storage/) ·
-  [Sealed Storage](/sealed-storage/) · [Access Gate](/access-gate/).
+- **[How the tools fit together](/blockchain/sui/architecture)** — the big picture.
+- Jump into a tool: [DAO](/blockchain/sui/dao/) · [Walrus Storage](/blockchain/sui/walrus-storage/) ·
+  [Sealed Storage](/blockchain/sui/sealed-storage/) · [Access Gate](/blockchain/sui/access-gate/).

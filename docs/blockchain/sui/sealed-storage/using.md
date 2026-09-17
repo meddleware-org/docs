@@ -1,13 +1,13 @@
 # Sealed Storage — using it
 
 A walkthrough of the [Sealed Storage app](https://sui-seal.meddleware.co.uk). You'll need a
-[Sui wallet](/getting-started); browsing policies needs nothing, but decrypting requires a signature.
+[Sui wallet](/blockchain/sui/getting-started); browsing policies needs nothing, but decrypting requires a signature.
 
 ## Encrypt and store
 
 1. Open the **Encrypt** tab.
 2. **Choose a file.**
-3. **Pick a policy** (see [Policies](/sealed-storage/policies)). The form adapts to the policy — for
+3. **Pick a policy** (see [Policies](/blockchain/sui/sealed-storage/policies)). The form adapts to the policy — for
    an Access Gate policy you select the gate; for a time-lock you pick an unlock time.
 4. Encrypt. The file is sealed **in your browser** and the ciphertext is uploaded to Walrus.
 5. You receive a **manifest** — save or share it. It's the pointer needed to decrypt later, and it

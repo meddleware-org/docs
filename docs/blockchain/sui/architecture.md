@@ -1,4 +1,4 @@
-# How the tools fit together
+# How the Sui tools fit together
 
 The four tools are useful on their own, but they're designed to compose. This page shows how.
 
@@ -13,7 +13,7 @@ The four tools are useful on their own, but they're designed to compose. This pa
 
 ## Sealed Storage = Walrus + Seal + Access Gate
 
-The clearest example of composition is **[Sealed Storage](/sealed-storage/)**. When you seal a file:
+The clearest example of composition is **[Sealed Storage](/blockchain/sui/sealed-storage/)**. When you seal a file:
 
 1. **Seal** encrypts it in your browser, under a **policy** you choose.
 2. **Walrus** stores the resulting ciphertext — publicly, because it's useless without the key.
@@ -36,14 +36,14 @@ So an Access Gate pass can act as the key to encrypted Walrus content — three 
 
 ## How gated Walrus uploads work
 
-**[Walrus Storage](/walrus-storage/)** can route uploads through a **relay**. Meddleware's relay can
+**[Walrus Storage](/blockchain/sui/walrus-storage/)** can route uploads through a **relay**. Meddleware's relay can
 be **gated** by an Access Gate NFT: you prove you hold a valid pass, and the relay accepts your
 upload. A commission on gate purchases funds the service. If you don't need the gated relay, uploads
 fall back to the public relay.
 
 ## Where the DAO fits
 
-The **[DAO console](/dao/)** doesn't create anything — it *observes*. It reads the platform's
+The **[DAO console](/blockchain/sui/dao/)** doesn't create anything — it *observes*. It reads the platform's
 on-chain configuration: the treasury address, the **commission rate** charged on Access Gate
 purchases, the community gates the treasury controls, and a live feed of gate activity (passes sold,
 used, burned). It's the transparency window over the Access Gate economics.
@@ -57,5 +57,5 @@ capability can. This is the pattern throughout: **economics live in the smart co
 
 ## Next
 
-- [DAO](/dao/) · [Walrus Storage](/walrus-storage/) · [Sealed Storage](/sealed-storage/) ·
-  [Access Gate](/access-gate/)
+- [DAO](/blockchain/sui/dao/) · [Walrus Storage](/blockchain/sui/walrus-storage/) · [Sealed Storage](/blockchain/sui/sealed-storage/) ·
+  [Access Gate](/blockchain/sui/access-gate/)

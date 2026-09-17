@@ -67,7 +67,7 @@ Owned capability authorising management of one gate (`{ gate_id }`). Authorisati
 ::: warning Event pruning
 Sui testnet prunes old events after ~3 months. Systems that need a reliable gate list should read
 **`AdminCap` ownership → `Gate`** rather than replaying `GateCreatedEvent` (this is what the
-[DAO console](/dao/) does).
+[DAO console](/blockchain/sui/dao/) does).
 :::
 
 ## Error codes
@@ -94,7 +94,7 @@ signed proof and on-chain pass ownership, failing **closed** on any ambiguity.
 
 The gateway consumes the nonce immediately (single-use replay protection) and, for single-use passes,
 verifies the on-chain consumption by digest. Two wire-identical implementations exist (Cloudflare
-Workers and Rust); running one is a [self-host / `dev.`](#developer-note) topic.
+Workers and Rust); running one is covered in the forthcoming developer documentation.
 
 ## SDK API
 
@@ -105,7 +105,6 @@ airdrop, admin setters), ownership reads, and the challenge/proof helpers — is
 
 ## Developer note
 
-Deploying the gateway, integrating the SDK into your own app, and white-label operation are
-`dev.meddleware.co.uk` topics, planned in the `access-gate-sui`, `nft-gate`, and `nft-gate-client`
-package docs. This page is the on-chain contract and wire-protocol reference users and bots can rely
-on.
+Deploying the gateway, integrating the SDK into your own app, and white-label operation are covered
+in the forthcoming developer documentation. This page is the on-chain contract and wire-protocol
+reference users and bots can rely on.

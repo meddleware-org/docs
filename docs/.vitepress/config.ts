@@ -1,15 +1,15 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath } from 'node:url'
 
-// User-facing documentation for the Meddleware Sui tools. One site, one section per service.
-// Output is pinned to the repo-root dist/ so the Dockerfile's `COPY --from=build /app/dist`
-// (the shared static-server image pattern) works unchanged.
+// User-facing documentation for the Meddleware developer tools. Blockchain-agnostic site with
+// per-chain sections; Sui is the first active chain. Output is pinned to the repo-root dist/ so
+// the Dockerfile's `COPY --from=build /app/dist` (shared static-server pattern) works unchanged.
 const outDir = fileURLToPath(new URL('../../dist', import.meta.url))
 
 export default defineConfig({
   title: 'Meddleware Docs',
   description:
-    'How to use the Meddleware Sui tools — the DAO console, Walrus Storage, Sealed Storage, and Access Gate.',
+    'Developer tools for decentralised applications — documentation for the Meddleware Sui platform and beyond.',
   lang: 'en-GB',
   outDir,
   cleanUrls: true,
@@ -25,13 +25,21 @@ export default defineConfig({
     search: { provider: 'local' },
 
     nav: [
-      { text: 'Start here', link: '/getting-started' },
-      { text: 'DAO', link: '/dao/' },
-      { text: 'Walrus Storage', link: '/walrus-storage/' },
-      { text: 'Sealed Storage', link: '/sealed-storage/' },
-      { text: 'Access Gate', link: '/access-gate/' },
       {
-        text: 'Tools',
+        text: 'Blockchain',
+        items: [
+          {
+            text: 'Active',
+            items: [{ text: 'Sui', link: '/blockchain/sui/' }],
+          },
+          {
+            text: 'Coming soon',
+            items: [{ text: 'More blockchains', link: '/blockchain/' }],
+          },
+        ],
+      },
+      {
+        text: 'Sui Tools',
         items: [
           { text: 'Tools hub', link: 'https://sui.meddleware.co.uk' },
           { text: 'DAO console', link: 'https://sui-dao.meddleware.co.uk' },
@@ -43,49 +51,58 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/': [
+      '/blockchain/sui/': [
         {
-          text: 'Introduction',
+          text: 'Sui',
           items: [
-            { text: 'Overview', link: '/' },
-            { text: 'Getting started', link: '/getting-started' },
-            { text: 'How the tools fit together', link: '/architecture' },
+            { text: 'Overview', link: '/blockchain/sui/' },
+            { text: 'Getting started', link: '/blockchain/sui/getting-started' },
+            { text: 'How the tools fit together', link: '/blockchain/sui/architecture' },
           ],
         },
         {
           text: 'DAO',
           collapsed: false,
           items: [
-            { text: 'Overview', link: '/dao/' },
-            { text: 'Reference', link: '/dao/reference' },
+            { text: 'Overview', link: '/blockchain/sui/dao/' },
+            { text: 'Reference', link: '/blockchain/sui/dao/reference' },
           ],
         },
         {
           text: 'Walrus Storage',
           collapsed: false,
           items: [
-            { text: 'Overview', link: '/walrus-storage/' },
-            { text: 'Using it', link: '/walrus-storage/using' },
-            { text: 'Reference', link: '/walrus-storage/reference' },
+            { text: 'Overview', link: '/blockchain/sui/walrus-storage/' },
+            { text: 'Using it', link: '/blockchain/sui/walrus-storage/using' },
+            { text: 'Reference', link: '/blockchain/sui/walrus-storage/reference' },
           ],
         },
         {
           text: 'Sealed Storage',
           collapsed: false,
           items: [
-            { text: 'Overview', link: '/sealed-storage/' },
-            { text: 'Using it', link: '/sealed-storage/using' },
-            { text: 'Policies', link: '/sealed-storage/policies' },
-            { text: 'Reference', link: '/sealed-storage/reference' },
+            { text: 'Overview', link: '/blockchain/sui/sealed-storage/' },
+            { text: 'Using it', link: '/blockchain/sui/sealed-storage/using' },
+            { text: 'Policies', link: '/blockchain/sui/sealed-storage/policies' },
+            { text: 'Reference', link: '/blockchain/sui/sealed-storage/reference' },
           ],
         },
         {
           text: 'Access Gate',
           collapsed: false,
           items: [
-            { text: 'Overview', link: '/access-gate/' },
-            { text: 'Using it', link: '/access-gate/using' },
-            { text: 'Reference', link: '/access-gate/reference' },
+            { text: 'Overview', link: '/blockchain/sui/access-gate/' },
+            { text: 'Using it', link: '/blockchain/sui/access-gate/using' },
+            { text: 'Reference', link: '/blockchain/sui/access-gate/reference' },
+          ],
+        },
+      ],
+      '/blockchain/': [
+        {
+          text: 'Blockchains',
+          items: [
+            { text: 'Overview', link: '/blockchain/' },
+            { text: 'Sui', link: '/blockchain/sui/' },
           ],
         },
       ],
@@ -94,7 +111,7 @@ export default defineConfig({
     socialLinks: [{ icon: 'github', link: 'https://github.com/meddleware-org' }],
 
     footer: {
-      message: 'Documentation for the Meddleware Sui tools.',
+      message: 'Documentation for the Meddleware developer tools.',
       copyright: 'Meddleware · 0BSD',
     },
   },

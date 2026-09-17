@@ -1,7 +1,7 @@
 {
   "name": "@meddleware/docs",
-  "version": "0.0.2",
-  "description": "Meddleware user documentation site (docs.meddleware.co.uk) — VitePress. Explains the DAO, Walrus Storage, Sealed Storage, and Access Gate: what each is, how to use it, and when.",
+  "version": "0.0.3",
+  "description": "Meddleware developer tools documentation site (docs.meddleware.co.uk) — VitePress. Blockchain-agnostic with Sui as the first active chain.",
   "author": "Meddleware <dev@meddleware.co.uk>",
   "license": "0BSD",
   "repository": {

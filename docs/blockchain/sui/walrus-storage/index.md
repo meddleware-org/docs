@@ -13,7 +13,7 @@ wallet, upload a file, get back a **blob ID**, and later list and extend the blo
 
 - You need **durable, decentralised** file storage addressable by a stable ID.
 - You're storing content for an app, NFT media, datasets, or documents.
-- You want to store **encrypted** content — pair it with [Sealed Storage](/sealed-storage/), which
+- You want to store **encrypted** content — pair it with [Sealed Storage](/blockchain/sui/sealed-storage/), which
   uses Walrus underneath.
 
 When **not** to: Walrus is not a permanent free drive. Storage is paid and **time-bounded** (see
@@ -35,7 +35,7 @@ confirm, and long-term durations are supported for content you intend to keep.
 Browser uploads go through an **upload relay**. Two modes:
 
 - **Public relay** — the default fallback (Mysten's public relay). Works for anyone.
-- **Gated relay** — Meddleware's relay, gated by an [Access Gate](/access-gate/) NFT. You prove you
+- **Gated relay** — Meddleware's relay, gated by an [Access Gate](/blockchain/sui/access-gate/) NFT. You prove you
   hold a valid pass and the relay accepts your upload. A small **tip** covers the relay's costs, and
   the app caps the tip so you never overpay.
 
@@ -45,10 +45,10 @@ same Walrus network.
 ## What you get back
 
 After an upload completes you receive a **blob ID** — the stable handle you use to read the content
-back (via a Walrus aggregator) or to reference it elsewhere. See [Reference](/walrus-storage/reference)
+back (via a Walrus aggregator) or to reference it elsewhere. See [Reference](/blockchain/sui/walrus-storage/reference)
 for the exact shapes.
 
 ## Next
 
-- **[Using it](/walrus-storage/using)** — upload, view, and extend blobs step by step.
-- **[Reference](/walrus-storage/reference)** — blob/relay shapes and the SDK API.
+- **[Using it](/blockchain/sui/walrus-storage/using)** — upload, view, and extend blobs step by step.
+- **[Reference](/blockchain/sui/walrus-storage/reference)** — blob/relay shapes and the SDK API.

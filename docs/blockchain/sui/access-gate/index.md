@@ -19,8 +19,8 @@ There are two perspectives:
 
 - You want to **sell access** — a paid community, premium content, a members' area.
 - You want to **gate an API or app** behind on-chain ownership (pair it with the
-  [nft-gate gateway](/access-gate/reference), which puts any HTTP service behind a gate).
-- You want to gate **encrypted content** — combine it with [Sealed Storage](/sealed-storage/), where
+  [nft-gate gateway](/blockchain/sui/access-gate/reference), which puts any HTTP service behind a gate).
+- You want to gate **encrypted content** — combine it with [Sealed Storage](/blockchain/sui/sealed-storage/), where
   a pass becomes the key.
 - You want **single-use tickets** or **memberships** represented as NFTs.
 
@@ -52,10 +52,10 @@ identity and not resold. The non-transferability is enforced at the contract lev
 
 Every purchase routes a commission (in basis points, capped on-chain at 10%) to the platform
 treasury; the rest goes to the operator. The rate is set in shared on-chain config and shown in the
-[DAO console](/dao/). Operators don't set the commission — only the price.
+[DAO console](/blockchain/sui/dao/). Operators don't set the commission — only the price.
 
 ## Next
 
-- **[Using it](/access-gate/using)** — create and manage a gate; buy and use a pass.
-- **[Reference](/access-gate/reference)** — objects, entry functions, events, the gateway, and the
+- **[Using it](/blockchain/sui/access-gate/using)** — create and manage a gate; buy and use a pass.
+- **[Reference](/blockchain/sui/access-gate/reference)** — objects, entry functions, events, the gateway, and the
   SDK API.

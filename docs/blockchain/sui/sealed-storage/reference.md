@@ -74,6 +74,6 @@ providers, and the manifest/byte helpers — is generated here:
 - [Seal client API](./api/)
 
 ::: tip Writing your own policy?
-That's `dev.meddleware.co.uk` material (a `seal_policies` Move module + a matching client provider),
-planned in the package docs.
+That's covered in the forthcoming developer documentation (a `seal_policies` Move module + a matching
+client provider).
 :::

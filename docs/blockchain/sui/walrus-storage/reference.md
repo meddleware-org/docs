@@ -1,4 +1,4 @@
-# Walrus Storage — reference
+# Walrus Storage reference
 
 Shapes and identifiers behind the Walrus Storage app. Conceptual here; the **exhaustive, always-current
 API** is auto-generated from the `@meddleware/walrus-client` SDK — see [SDK API](#sdk-api).

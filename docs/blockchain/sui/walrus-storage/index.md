@@ -50,5 +50,5 @@ for the exact shapes.
 
 ## Next
 
-- **[Using it](/blockchain/sui/walrus-storage/using)** — upload, view, and extend blobs step by step.
+- **[Walkthrough](/blockchain/sui/walrus-storage/walkthrough)** — upload, view, and extend blobs step by step.
 - **[Reference](/blockchain/sui/walrus-storage/reference)** — blob/relay shapes and the SDK API.

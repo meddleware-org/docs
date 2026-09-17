@@ -56,6 +56,6 @@ treasury; the rest goes to the operator. The rate is set in shared on-chain conf
 
 ## Next
 
-- **[Using it](/blockchain/sui/access-gate/using)** — create and manage a gate; buy and use a pass.
+- **[Walkthrough](/blockchain/sui/access-gate/walkthrough)** — create and manage a gate; buy and use a pass.
 - **[Reference](/blockchain/sui/access-gate/reference)** — objects, entry functions, events, the gateway, and the
   SDK API.

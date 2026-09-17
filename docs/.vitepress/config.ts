@@ -73,7 +73,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Overview', link: '/blockchain/sui/walrus-storage/' },
-            { text: 'Using it', link: '/blockchain/sui/walrus-storage/using' },
+            { text: 'Walkthrough', link: '/blockchain/sui/walrus-storage/walkthrough' },
             { text: 'Reference', link: '/blockchain/sui/walrus-storage/reference' },
           ],
         },
@@ -82,7 +82,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Overview', link: '/blockchain/sui/sealed-storage/' },
-            { text: 'Using it', link: '/blockchain/sui/sealed-storage/using' },
+            { text: 'Walkthrough', link: '/blockchain/sui/sealed-storage/walkthrough' },
             { text: 'Policies', link: '/blockchain/sui/sealed-storage/policies' },
             { text: 'Reference', link: '/blockchain/sui/sealed-storage/reference' },
           ],
@@ -92,7 +92,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Overview', link: '/blockchain/sui/access-gate/' },
-            { text: 'Using it', link: '/blockchain/sui/access-gate/using' },
+            { text: 'Walkthrough', link: '/blockchain/sui/access-gate/walkthrough' },
             { text: 'Reference', link: '/blockchain/sui/access-gate/reference' },
           ],
         },

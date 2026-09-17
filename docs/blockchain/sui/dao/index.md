@@ -41,7 +41,7 @@ name, price, and object ID (linked to a Sui explorer).
 ### Proposals
 
 Reserved for on-chain governance proposals. This is a **placeholder** today — the governance module
-isn't deployed yet, so the tab shows an empty state. It will list fundraising/governance proposals
+isn't deployed yet, so the tab shows an empty state. It will list governance proposals
 when that module ships.
 
 ### Governance

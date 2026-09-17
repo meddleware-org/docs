@@ -1,4 +1,4 @@
-# Sealed Storage — reference
+# Sealed Storage reference
 
 Shapes and identifiers behind Sealed Storage. The **exhaustive, always-current API** is auto-generated
 from the `@meddleware/seal-client` SDK — see [SDK API](#sdk-api).

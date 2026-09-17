@@ -1,4 +1,4 @@
-# Access Gate — reference
+# Access Gate reference
 
 The on-chain `access_gate` contract, its gateway, and the client SDK. Move tables are curated from
 source; the TypeScript SDK reference is [auto-generated](#sdk-api).

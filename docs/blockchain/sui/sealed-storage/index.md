@@ -63,6 +63,6 @@ committee is available — the app shows a clear notice until then.
 
 ## Next
 
-- **[Using it](/blockchain/sui/sealed-storage/using)** — encrypt, share, and decrypt step by step.
+- **[Walkthrough](/blockchain/sui/sealed-storage/walkthrough)** — encrypt, share, and decrypt step by step.
 - **[Policies](/blockchain/sui/sealed-storage/policies)** — the access rules you can choose, and when to use each.
 - **[Reference](/blockchain/sui/sealed-storage/reference)** — manifest shape and the SDK API.

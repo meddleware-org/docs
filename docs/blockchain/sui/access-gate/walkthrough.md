@@ -1,4 +1,4 @@
-# Access Gate — using it
+# Using Access Gate
 
 Two audiences: **operators** who run gates, and **buyers** who hold passes.
 

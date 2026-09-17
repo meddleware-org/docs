@@ -1,4 +1,4 @@
-# DAO — reference
+# DAO reference
 
 Shapes and identifiers the DAO console reads. These are **on-chain** objects and events from the
 `access_gate` package; the console only displays them.
@@ -80,12 +80,6 @@ Example (as decoded JSON):
 
 The console queries each event type independently and merges them, sorted by checkpoint
 (newest first), tolerating any single type being pruned or unavailable.
-
-## Roadmap: `vault_dao`
-
-The **Proposals** and **Governance actions** are placeholders pending an on-chain `vault_dao` module.
-When it ships, proposals will be read from its registry; the console's display shapes are already
-stable so wiring it in won't change the UI.
 
 ::: tip Developer note
 Full SDK/contract API reference (entry functions, exhaustive event schemas) is covered in the

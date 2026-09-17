@@ -2,6 +2,15 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.4] — 2026-09-17
+
+Heading cleanup and naming improvements.
+
+- Renamed `using.md` → `walkthrough.md` across all three tool sections (Walrus Storage, Sealed Storage, Access Gate); URLs updated accordingly
+- Replaced all `# Feature — noun` H1 patterns with clean unhyphenated titles (`# Using Walrus Storage`, `# DAO reference`, `# Sealed Storage policies`, etc.)
+- Sidebar and "Next" section links updated to "Walkthrough"
+- Removed "fundraising/" qualifier from DAO governance placeholder copy
+
 ## [0.0.3] — 2026-09-17
 
 Restructured to a blockchain-agnostic architecture with Sui as the first active chain.

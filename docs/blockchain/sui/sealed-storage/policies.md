@@ -1,4 +1,4 @@
-# Sealed Storage — policies
+# Sealed Storage policies
 
 A **policy** is the on-chain rule that decides who may decrypt sealed content. You choose one when you
 encrypt. Each policy is a self-contained on-chain module with a matching option in the app.

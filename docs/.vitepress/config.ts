@@ -13,7 +13,7 @@ export default defineConfig({
   lang: 'en-GB',
   outDir,
   cleanUrls: true,
-  lastUpdated: true,
+  lastUpdated: false,
   // The per-service `api/` subtrees are generated at build time by scripts/gen-api.mjs (TypeDoc);
   // their exact filenames depend on the TypeDoc version, so don't fail the build on links into them.
   ignoreDeadLinks: [/\/api\//],

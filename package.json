@@ -1,6 +1,6 @@
 {
   "name": "@meddleware/docs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Meddleware user documentation site (docs.meddleware.co.uk) — VitePress. Explains the DAO, Walrus Storage, Sealed Storage, and Access Gate: what each is, how to use it, and when.",
   "author": "Meddleware <dev@meddleware.co.uk>",
   "license": "0BSD",

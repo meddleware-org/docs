@@ -2,6 +2,15 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.5] — 2026-09-17
+
+CI type-check fix and docs referencing.
+
+- Fixed `TS18003: No inputs were found` by replacing `"include": ["docs/.vitepress", "scripts"]`
+  with an explicit glob `"include": ["docs/.vitepress/**/*.ts"]`; `scripts/` has no `.ts` files
+  so its presence caused TypeScript to find zero inputs in some CI environments
+- Added `homepage` in `package.json` pointing to `https://docs.meddleware.co.uk/`
+
 ## [0.0.4] — 2026-09-17
 
 Heading cleanup and naming improvements.

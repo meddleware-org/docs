@@ -1,7 +1,8 @@
 {
   "name": "@meddleware/docs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Meddleware developer tools documentation site (docs.meddleware.co.uk) — VitePress. Blockchain-agnostic with Sui as the first active chain.",
+  "homepage": "https://docs.meddleware.co.uk/",
   "author": "Meddleware <dev@meddleware.co.uk>",
   "license": "0BSD",
   "repository": {

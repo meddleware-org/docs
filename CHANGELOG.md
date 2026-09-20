@@ -2,6 +2,18 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.6] — 2026-09-18
+
+Landing page and sidebar polish.
+
+- Shortened tagline to "Built to work with leading blockchain ecosystems."
+- Removed hero action buttons (redundant with the feature cards below)
+- Added an accented brand-colour prompt ("Select a blockchain below…") where the buttons were,
+  injected via the `home-hero-actions-after` VitePress layout slot
+- Moved DAO sidebar section to the bottom (below Access Gate)
+- All tool sidebar sections now start collapsed (`collapsed: true`); VitePress auto-opens the
+  section containing the active page
+
 ## [0.0.5] — 2026-09-17
 
 CI type-check fix and docs referencing.

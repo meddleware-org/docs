@@ -48,6 +48,8 @@ export default defineConfig({
           { text: 'Access Gate', link: 'https://sui-access-gate.meddleware.co.uk' },
         ],
       },
+      { text: 'Developers →', link: 'https://dev.meddleware.co.uk' },
+      // TODO white-label: operator nav entry (planned)
     ],
 
     sidebar: {
@@ -61,16 +63,8 @@ export default defineConfig({
           ],
         },
         {
-          text: 'DAO',
-          collapsed: false,
-          items: [
-            { text: 'Overview', link: '/blockchain/sui/dao/' },
-            { text: 'Reference', link: '/blockchain/sui/dao/reference' },
-          ],
-        },
-        {
           text: 'Walrus Storage',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Overview', link: '/blockchain/sui/walrus-storage/' },
             { text: 'Walkthrough', link: '/blockchain/sui/walrus-storage/walkthrough' },
@@ -79,7 +73,7 @@ export default defineConfig({
         },
         {
           text: 'Sealed Storage',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Overview', link: '/blockchain/sui/sealed-storage/' },
             { text: 'Walkthrough', link: '/blockchain/sui/sealed-storage/walkthrough' },
@@ -89,11 +83,19 @@ export default defineConfig({
         },
         {
           text: 'Access Gate',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Overview', link: '/blockchain/sui/access-gate/' },
             { text: 'Walkthrough', link: '/blockchain/sui/access-gate/walkthrough' },
             { text: 'Reference', link: '/blockchain/sui/access-gate/reference' },
+          ],
+        },
+        {
+          text: 'DAO',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/blockchain/sui/dao/' },
+            { text: 'Reference', link: '/blockchain/sui/dao/reference' },
           ],
         },
       ],

@@ -64,6 +64,6 @@ queries, and relay access helpers — is generated here:
 - [Walrus client API](./api/)
 
 ::: tip Using the SDK in your own app?
-This reference lists the shapes; the **how-to** for integrating the SDK (and self-hosting a relay) is
-covered in the forthcoming developer documentation.
+See the [Walrus Storage integration guide](https://dev.meddleware.co.uk/sui/walrus-storage/) on the developer site — SDK setup, upload/read patterns, relay self-host, and Vue composables.
 :::
+<!-- white-label: link to white-label relay operator guide when published -->

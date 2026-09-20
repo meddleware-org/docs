@@ -16,7 +16,7 @@ Mainnet identifiers are pending.
 
 ### `Gate` (shared)
 
-```
+```move
 Gate {
   price_mist         // pass price in MIST
   payment_recipient  // operator address that receives the post-commission amount
@@ -103,8 +103,7 @@ airdrop, admin setters), ownership reads, and the challenge/proof helpers — is
 
 - [NFT-gate client API](./api/)
 
-## Developer note
-
-Deploying the gateway, integrating the SDK into your own app, and white-label operation are covered
-in the forthcoming developer documentation. This page is the on-chain contract and wire-protocol
-reference users and bots can rely on.
+::: tip Deploying the gateway or integrating the SDK?
+See the [Access Gate integration guide](https://dev.meddleware.co.uk/sui/access-gate/) on the developer site — SDK setup, purchase/verify flow, challenge/proof protocol, and Rust/Worker gateway deployment.
+:::
+<!-- white-label: link to white-label gateway operator guide when published -->

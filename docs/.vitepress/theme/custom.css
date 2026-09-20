@@ -1,51 +1,63 @@
 /*
  * Meddleware brand overrides for the VitePress default theme.
- * Brand ramp = Oxblood (primary) with Indigo/Gold accents, sourced from
- * @meddleware/design-tokens so the docs stay in lockstep with the apps.
+ * Brand = the functional primaries from @meddleware/design-tokens (red accent + blue), so the
+ * docs track the apps. No gold/purple (design philosophy: primary/rainbow accents as human
+ * universals, not royalty/priesthood signalling).
  */
 
 :root {
-  /* Brand = Oxblood */
-  --vp-c-brand-1: var(--mw-oxblood-500);
-  --vp-c-brand-2: var(--mw-oxblood-400);
-  --vp-c-brand-3: var(--mw-oxblood-400);
-  --vp-c-brand-soft: var(--mw-oxblood-100);
+  /* Brand = primary red (mirrors --accent in the apps). */
+  --vp-c-brand-1: var(--mw-red-500);
+  --vp-c-brand-2: var(--mw-red-300);
+  --vp-c-brand-3: var(--mw-red-300);
+  --vp-c-brand-soft: color-mix(in srgb, var(--mw-red-500) 14%, transparent);
 
-  /* Home hero: Oxblood → Indigo wash, Gold glow */
+  /* Home hero: red → blue wash, warm (orange) glow — no gold. */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(
     120deg,
-    var(--mw-oxblood-500),
-    var(--mw-indigo-500)
+    var(--mw-red-500),
+    var(--mw-blue-500)
   );
   --vp-home-hero-image-background-image: linear-gradient(
     120deg,
-    var(--mw-oxblood-400),
-    var(--mw-gold-500)
+    var(--mw-red-300),
+    var(--mw-orange-500)
   );
   --vp-home-hero-image-filter: blur(44px);
 }
 
 .dark {
-  /* Dark mode: lightened Oxblood for legibility (mirrors --accent in tokens) */
-  --vp-c-brand-1: #b0465a;
-  --vp-c-brand-2: var(--mw-oxblood-400);
-  --vp-c-brand-3: var(--mw-oxblood-500);
-  --vp-c-brand-soft: color-mix(in srgb, var(--mw-oxblood-500) 30%, transparent);
+  /* Dark mode: lightened red for legibility (mirrors --accent dark stop in tokens). */
+  --vp-c-brand-1: var(--mw-red-300);
+  --vp-c-brand-2: var(--mw-red-300);
+  --vp-c-brand-3: var(--mw-red-500);
+  --vp-c-brand-soft: color-mix(in srgb, var(--mw-red-500) 30%, transparent);
 
   --vp-home-hero-name-background: linear-gradient(
     120deg,
-    #b0465a,
-    var(--mw-indigo-300)
+    var(--mw-red-300),
+    var(--mw-blue-300)
   );
   --vp-home-hero-image-background-image: linear-gradient(
     120deg,
-    var(--mw-oxblood-500),
-    var(--mw-gold-400)
+    var(--mw-red-500),
+    var(--mw-orange-500)
   );
 }
 
-/* Gold for "tip" custom blocks keeps the accent role consistent with the apps. */
+/* "tip" custom blocks use the info (blue) role — functional, not gold. */
 .vp-doc .custom-block.tip {
-  border-color: var(--mw-gold-500);
+  border-color: var(--mw-blue-500);
+}
+
+/* Encouraging prompt rendered below the hero tagline on the home page (home-hero-actions-after slot). */
+.home-explore-prompt {
+  margin: 0 auto 2rem;
+  max-width: 480px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--vp-c-brand-1);
+  line-height: 1.5;
 }

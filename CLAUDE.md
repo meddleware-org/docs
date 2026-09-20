@@ -13,8 +13,9 @@ section per service (DAO, Walrus Storage, Sealed Storage, Access Gate).
 - **Single site, sectioned.** All services live under one VitePress instance (one nav, one search
   index, one theme). Do not split into per-service docs subdomains.
 - **On-brand via design tokens.** Theming maps VitePress `--vp-c-brand-*` onto
-  `@meddleware/design-tokens` (Oxblood/Indigo/Gold) in `.vitepress/theme/custom.css`. Do not hardcode
-  brand hex — extend the token mapping so the docs track the apps.
+  `@meddleware/design-tokens` functional primaries (red accent + blue; **no gold/purple**) in
+  `.vitepress/theme/custom.css`. Do not hardcode brand hex — extend the token mapping so the docs
+  track the apps.
 - **Output is pinned to `dist/`.** `outDir` in `.vitepress/config.ts` resolves to the repo-root
   `dist/` so the Dockerfile's `COPY --from=build /app/dist` (shared static-server pattern) works
   unchanged. Do not rely on VitePress's default `.vitepress/dist`.
@@ -27,11 +28,14 @@ section per service (DAO, Walrus Storage, Sealed Storage, Access Gate).
 
 ## Content boundary (docs vs dev)
 
-This site is **user-facing** — *what/how/when* for end users. **Out of scope** (deferred to
+This site is **user-facing** — *what/how/when* for end users. **Out of scope** (lives in
 `dev.meddleware.co.uk`): developer integration guides, self-host instructions, "wire the SDK into
-your app" tutorials, and white-label operator guides. Those are planned inside each package's
-README/CLAUDE.md. The auto-generated **SDK API reference is included** here (useful to users/bots),
-just without the integration how-to.
+your app" tutorials, and white-label operator guides. The auto-generated **SDK API reference is
+included** here (useful to users/bots), just without the integration how-to.
+
+The sister developer site lives at `dev.meddleware.co.uk` (package: `repos/dev/`, k8s:
+`post-bootstrap/dev/`). Each service's `reference.md` links into it via a `:::tip` callout. The nav
+also has a top-level "Developers →" link.
 
 ## Key files
 

@@ -82,7 +82,6 @@ The console queries each event type independently and merges them, sorted by che
 (newest first), tolerating any single type being pruned or unavailable.
 
 ::: tip Developer note
-Full SDK/contract API reference (entry functions, exhaustive event schemas) is covered in the
-forthcoming developer documentation. The [Access Gate reference](/blockchain/sui/access-gate/reference) already
-lists the gate contract's entry points and events, which is the on-chain source these DAO views read.
+For governance interaction patterns from code, see the [DAO integration guide](https://dev.meddleware.co.uk/sui/dao/) on the developer site — PTB construction, config reads, event monitoring, and trust assumptions.
 :::
+<!-- white-label: link to white-label DAO operator guide when published -->

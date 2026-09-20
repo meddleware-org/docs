@@ -5,12 +5,12 @@
 # published before this image is built.
 #
 # No VITE_* build args: the site is static content with no per-network configuration.
-FROM node:22-slim AS build
+FROM node:24-slim AS build
 
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci
 COPY . .
 
 # vitepress build → dist/ (outDir is pinned to the repo root dist/ in docs/.vitepress/config.ts)

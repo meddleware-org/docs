@@ -73,7 +73,7 @@ providers, and the manifest/byte helpers — is generated here:
 
 - [Seal client API](./api/)
 
-::: tip Writing your own policy?
-That's covered in the forthcoming developer documentation (a `seal_policies` Move module + a matching
-client provider).
+::: tip Writing your own policy or integrating the SDK?
+See the [Sealed Storage integration guide](https://dev.meddleware.co.uk/sui/sealed-storage/) on the developer site — SDK setup, encrypt/store/decrypt flow, policy authoring in Move, and Vue composables.
 :::
+<!-- white-label: link to white-label policy operator guide when published -->

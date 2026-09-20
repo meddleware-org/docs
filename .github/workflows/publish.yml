@@ -36,13 +36,14 @@ jobs:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
 
-      # Trusted publishing (OIDC) requires npm >= 11.5.1. Node 24 ships an older
-      # npm, so upgrade before publishing.
+      # Trusted publishing (OIDC) requires npm >= 11.5.1. Node 24 ships an older npm, so upgrade
+      # before publishing. Pinned (not @latest) so a compromised/regressed npm release can't be
+      # silently adopted into the publish pipeline; bump deliberately when a newer minimum is needed.
       - name: Upgrade npm for trusted publishing
-        run: npm install -g npm@latest
+        run: npm install -g npm@11.5.1
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Type-check
         run: npm run type-check

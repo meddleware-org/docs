@@ -1,16 +1,19 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
 
 // User-facing documentation for the Meddleware developer tools. Blockchain-agnostic site with
 // per-chain sections; Sui is the first active chain. Output is pinned to the repo-root dist/ so
 // the Dockerfile's `COPY --from=build /app/dist` (shared static-server pattern) works unchanged.
 const outDir = fileURLToPath(new URL('../../dist', import.meta.url))
+const srcDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   title: 'Meddleware Docs',
   description:
     'Developer tools for decentralised applications — documentation for the Meddleware Sui platform and beyond.',
   lang: 'en-GB',
+  srcDir,
   outDir,
   cleanUrls: true,
   lastUpdated: false,

@@ -31,6 +31,9 @@ jobs:
       - name: Audit dependencies
         run: npm audit --audit-level=high
 
+      - name: Type-check
+        run: npm run type-check
+
       # `vitepress build` fails on dead INTERNAL links by default (ignoreDeadLinks unset), so this
       # step is the internal-strict link gate. `gen:api` runs first (via the build script) so the
       # generated API pages are included.

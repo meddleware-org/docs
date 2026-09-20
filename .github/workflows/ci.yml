@@ -53,7 +53,7 @@ jobs:
             --max-retries 3
             --retry-wait-time 2
             --accept 200,206,429
-            --root docs
+            --root-dir docs
             docs/**/*.md
           fail: false
 

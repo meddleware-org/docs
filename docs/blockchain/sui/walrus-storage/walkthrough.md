@@ -36,7 +36,7 @@ Because blobs expire, *My Blobs* lets you **extend** one before it lapses:
 Do this **before** expiry — once a blob has lapsed and been removed, it can't be extended, only
 re-uploaded.
 
-## Read a blob back
+## Read a blob
 
 A blob ID resolves through a Walrus **aggregator** over plain HTTP. Anyone with the ID can fetch the
 bytes (blobs are public unless you encrypted them first with [Sealed Storage](/blockchain/sui/sealed-storage/)).

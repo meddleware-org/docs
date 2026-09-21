@@ -104,9 +104,5 @@ export default defineConfig({
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/meddleware-org' }],
 
-    footer: {
-      message: 'Documentation for the Meddleware developer tools.',
-      copyright: 'Meddleware · 0BSD',
-    },
   },
 })

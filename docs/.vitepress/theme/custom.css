@@ -65,3 +65,8 @@
   color: var(--vp-c-brand-1);
   line-height: 1.5;
 }
+
+/* Hide the default VitePress footer; use custom Layout with CopyrightLine instead. */
+.VPFooter {
+  display: none;
+}

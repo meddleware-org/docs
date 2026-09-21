@@ -16,7 +16,3 @@ features:
     link: /blockchain/
     linkText: Coming soon
 ---
-
-<div class="vp-doc" style="padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 3rem; text-align: center;">
-  <CopyrightLine symbolVariant="kopimi" organisation-name="Meddleware" rightsStatement="jam" />
-</div>

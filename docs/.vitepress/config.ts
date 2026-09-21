@@ -40,17 +40,7 @@ export default defineConfig({
           },
         ],
       },
-      {
-        text: 'Sui Tools',
-        items: [
-          { text: 'Tools hub', link: 'https://sui.meddleware.co.uk' },
-          { text: 'DAO console', link: 'https://sui-dao.meddleware.co.uk' },
-          { text: 'Walrus Storage', link: 'https://sui-walrus.meddleware.co.uk' },
-          { text: 'Sealed Storage', link: 'https://sui-seal.meddleware.co.uk' },
-          { text: 'Access Gate', link: 'https://sui-access-gate.meddleware.co.uk' },
-        ],
-      },
-      { text: 'Developers →', link: 'https://dev.meddleware.co.uk' },
+      { text: 'Developers', link: 'https://dev.meddleware.co.uk' },
       // TODO white-label: operator nav entry (planned)
     ],
 

@@ -1,6 +1,6 @@
 {
   "name": "@meddleware/docs",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Meddleware developer tools documentation site (docs.meddleware.co.uk) — VitePress. Blockchain-agnostic with Sui as the first active chain.",
   "homepage": "https://docs.meddleware.co.uk/",
   "author": "Meddleware <dev@meddleware.co.uk>",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@meddleware/design-tokens": "^0.1.5",
-    "@meddleware/ui": "^0.1.19"
+    "@meddleware/ui": "^0.1.20"
   },
   "devDependencies": {
     "@meddleware/nft-gate-client": "^0.0.9",

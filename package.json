@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@meddleware/design-tokens": "^0.1.5",
-    "@meddleware/ui": "^0.1.20"
+    "@meddleware/ui": "^0.1.21"
   },
   "devDependencies": {
     "@meddleware/nft-gate-client": "^0.0.9",

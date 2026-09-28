@@ -19,10 +19,17 @@ section per service (DAO, Walrus Storage, Sealed Storage, Access Gate).
 - **Output is pinned to `dist/`.** `outDir` in `.vitepress/config.ts` resolves to the repo-root
   `dist/` so the Dockerfile's `COPY --from=build /app/dist` (shared static-server pattern) works
   unchanged. Do not rely on VitePress's default `.vitepress/dist`.
-- **Reference = autodoc + curated tables, narrative = hand-authored.** `scripts/gen-api.mjs` runs
-  TypeDoc over the SDK packages into each service's `api/` subtree (git-ignored, built fresh).
-  Move/object/event tables are curated from source (Move has no clean autodoc). Prose is written by
-  hand, seeded from the packages' READMEs/CLAUDE.md.
+- **Reference = autodoc + imported on-chain docs, narrative = hand-authored.** `scripts/gen-api.mjs`
+  runs TypeDoc over the SDK packages into each service's `api/` subtree (git-ignored, built fresh).
+  Prose is written by hand, seeded from the packages' READMEs/CLAUDE.md.
+- **On-chain docs are imported, never authored here.** For the Sui Move packages
+  (`access-gate-sui`, `seal-policies-sui`, `sui-token-template`) the canonical on-chain docs live in
+  each package repo (`docs/onchain/*.md` + `manifest.json`) and ship in its npm package.
+  `scripts/gen-onchain.mjs` (run by `build`/`dev`) copies the pages the manifest assigns to this site
+  into a git-ignored subtree and generates the sidebar (`docs/.vitepress/generated/`). Resolution is
+  `node_modules` by default, or `ONCHAIN_DOCS_ROOT=..` to preview sibling checkouts. Fails soft
+  (placeholder pages for every standard page name). Fix on-chain content in the Move repo, not here;
+  hand-written pages link to the imported ones instead of duplicating Move tables.
 - **Autodoc fails soft.** A missing/unresolvable SDK writes a placeholder and warns rather than
   failing the whole build — an empty result means fix the SDK's `types`/`exports`, visible in CI logs.
 

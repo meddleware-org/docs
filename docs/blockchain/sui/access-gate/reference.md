@@ -1,7 +1,8 @@
 # Access Gate reference
 
-The on-chain `access_gate` contract, its gateway, and the client SDK. Move tables are curated from
-source; the TypeScript SDK reference is [auto-generated](#sdk-api).
+The on-chain `access_gate` contract, its gateway, and the client SDK. The contract reference is
+imported from the Move package ([below](#on-chain-contract)); the TypeScript SDK reference is
+[auto-generated](#sdk-api).
 
 ## Deployed identifiers (testnet)
 
@@ -12,73 +13,24 @@ source; the TypeScript SDK reference is [auto-generated](#sdk-api).
 
 Mainnet identifiers are pending.
 
-## Objects
+## On-chain contract
 
-### `Gate` (shared)
+The Move contract's objects, functions, events and abort codes are documented **with the Move
+package itself** and imported into these sites at build time, so they always match the deployed
+source:
 
-```move
-Gate {
-  price_mist         // pass price in MIST
-  payment_recipient  // operator address that receives the post-commission amount
-  default_uses       // 0 ⇒ unlimited pass; N ⇒ single-use with N uses
-  soulbound          // whether minted passes are non-transferable
-  auto_burn_at_zero  // spent single-use pass: delete (true) or return as receipt (false)
-  paused             // purchases blocked while true
-  admin_cap_id       // the AdminCap authorised to manage this gate
-}
-```
-
-### Passes
-
-- **`AccessNFT`** (has `store`) — a transferable pass.
-- **`SoulboundAccessNFT`** (no `store`) — non-transferable; only the contract's `consume`/`burn` can
-  destroy it.
-
-Both wrap **`AccessData`** `{ gate_id, variant, minted_epoch }`, where **`AccessVariant`** is
-`UnlimitedPass` or `SingleUse { uses_remaining }`.
-
-### `AdminCap`
-
-Owned capability authorising management of one gate (`{ gate_id }`). Authorisation is by
-`cap.gate_id == object::id(gate)`.
-
-## Entry functions
-
-| Function | Who | Effect |
-| --- | --- | --- |
-| `create_gate` | anyone | Create a gate; mints an `AdminCap` to the creator. |
-| `purchase` | anyone | Pay `price_mist`; commission → treasury, remainder → `payment_recipient`; mint pass; refund overpayment. |
-| `consume` | pass owner | Spend one use of a single-use pass; emits `AccessConsumedEvent { nonce }`. |
-| `airdrop` | AdminCap | Grant a pass to an address without payment. |
-| `burn` | pass owner | Voluntarily destroy a pass; emits `AccessBurnedEvent`. |
-| admin setters | AdminCap | Update price / recipient / paused / etc. |
-| `make_gate_immutable` | AdminCap | **Irreversible** — consumes the AdminCap; ends settings + airdrops. |
-| `set_platform_treasury`, `set_commission_bps` | platform admin | Platform-only; not exposed in the operator console. |
-
-## Events
-
-| Event | Emitted when | Key fields |
-| --- | --- | --- |
-| `GateCreatedEvent` | a gate is created | gate config |
-| `AccessMintedEvent` | a pass is purchased/airdropped | recipient, gate |
-| `AccessConsumedEvent` | a single-use pass is spent | **`nonce`**, address |
-| `AccessBurnedEvent` | a pass is burned | id |
+- [On-chain overview](/blockchain/sui/onchain/access-gate/overview) — objects, pass flavours, money
+  flow and trust boundaries.
+- [Using passes and gates](/blockchain/sui/onchain/access-gate/user-guide) — what you can do, who can
+  do it, and what to watch for.
+- [On-chain API reference](https://dev.meddleware.co.uk/sui/onchain/access-gate/api-reference) (developer
+  site) — every function, event and abort code.
 
 ::: warning Event pruning
 Sui testnet prunes old events after ~3 months. Systems that need a reliable gate list should read
 **`AdminCap` ownership → `Gate`** rather than replaying `GateCreatedEvent` (this is what the
 [DAO console](/blockchain/sui/dao/) does).
 :::
-
-## Error codes
-
-| Code | Constant | Meaning |
-| --- | --- | --- |
-| 1 | `E_PAUSED` | Gate is paused |
-| 2 | `E_INSUFFICIENT_PAYMENT` | Payment below price |
-| 3 | `E_NOT_SINGLE_USE` | Consume called on an unlimited pass |
-| 4 | `E_NO_USES_REMAINING` | Single-use pass already exhausted |
-| 5 | `E_WRONG_GATE` | NFT/cap doesn't belong to the supplied gate |
 
 ## Gateway (nft-gate)
 

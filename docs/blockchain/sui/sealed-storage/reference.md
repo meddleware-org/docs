@@ -30,16 +30,18 @@ The portable pointer produced when you seal a file. It contains **no secrets**:
 Keep the manifest safe — its `id` (the encryption identity) is needed to locate and decrypt the
 ciphertext.
 
-## Policy identities
+## Policies on-chain
 
-Each policy encodes its access condition into the encryption **identity**. Conceptually:
+Each policy encodes its access condition into the encryption **identity** and is checked on-chain by
+the `seal_policies` Move package. The policies, identity layouts and the content-pointer registry are
+documented **with the Move package** and imported here at build time:
 
-| Policy | Identity layout | On-chain check |
-| --- | --- | --- |
-| `nft-gate` | `[32-byte gate id][random nonce]` | Holder of a valid pass for that gate |
-| `time-lock` | `[8-byte unlock time][random nonce]` | On-chain clock ≥ unlock time |
-
-The gate id in the identity namespaces the content: a pass for gate A cannot decrypt gate B.
+- [On-chain overview](/blockchain/sui/onchain/sealed-storage/overview) — modules, identity layouts and
+  key properties.
+- [What the policies allow](/blockchain/sui/onchain/sealed-storage/user-guide) — who can decrypt, when,
+  and the limits.
+- [On-chain API reference](https://dev.meddleware.co.uk/sui/onchain/sealed-storage/api-reference)
+  (developer site).
 
 ## Threshold committee
 
@@ -49,22 +51,10 @@ key** (signed once per session) authorises the release.
 
 ## Discoverable content pointer (optional)
 
-Publishing a pointer for gate-unlockable content emits an on-chain event so pass-holders can discover
-it:
-
-```json
-{
-  "contentId": "0x…",
-  "gateId": "0x…",
-  "blobId": "…",
-  "sealId": "…",
-  "label": "…",
-  "publisher": "0x…"
-}
-```
-
-The pointer is public and grants nothing on its own — confidentiality stays enforced by Seal + the
-gate.
+Apps can publish a public pointer so pass-holders can discover gate-unlockable content. **Anyone can
+publish a pointer under any gate with any label** — it grants nothing on its own and must not be
+trusted as proof of who made the content. Its exact shape is in the
+[on-chain overview](/blockchain/sui/onchain/sealed-storage/overview).
 
 ## SDK API
 

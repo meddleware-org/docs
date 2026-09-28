@@ -1,7 +1,7 @@
 {
   "name": "@meddleware/docs",
   "version": "0.0.18",
-  "description": "Meddleware developer tools documentation site (docs.meddleware.co.uk) — VitePress. Blockchain-agnostic with Sui as the first active chain.",
+  "description": "Meddleware developer tools documentation site (docs.meddleware.co.uk) \u2014 VitePress. Blockchain-agnostic with Sui as the first active chain.",
   "homepage": "https://docs.meddleware.co.uk/",
   "author": "Meddleware <dev@meddleware.co.uk>",
   "license": "0BSD",
@@ -18,9 +18,10 @@
     "CHANGELOG.md"
   ],
   "scripts": {
+    "gen:onchain": "node scripts/gen-onchain.mjs",
     "gen:api": "node scripts/gen-api.mjs",
-    "dev": "npm run gen:api && vitepress dev docs",
-    "build": "npm run gen:api && vitepress build docs",
+    "dev": "npm run gen:api && npm run gen:onchain && vitepress dev docs",
+    "build": "npm run gen:api && npm run gen:onchain && vitepress build docs",
     "preview": "vitepress preview docs",
     "type-check": "tsc --noEmit",
     "lint:css": "stylelint \"docs/.vitepress/**/*.{css,vue}\"",

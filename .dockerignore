@@ -6,3 +6,6 @@ docs/**/api
 .git
 .github
 *.log
+# generated at build time (gen:onchain)
+docs/blockchain/sui/onchain
+docs/.vitepress/generated

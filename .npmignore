@@ -4,3 +4,6 @@ docs/**/api/
 dist/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+# Generated at build time (gen:onchain) — canonical source lives in the Move package repos.
+docs/blockchain/sui/onchain/
+docs/.vitepress/generated/

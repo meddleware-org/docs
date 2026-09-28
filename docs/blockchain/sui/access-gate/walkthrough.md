@@ -22,9 +22,11 @@ Manage gates in the [operator console](https://sui-access-gate.meddleware.co.uk)
 
 Under **My gates**, each gate you administer offers:
 
-- **Settings** — update price and metadata (via the AdminCap).
+- **Settings** — update price and metadata (via the AdminCap). Setting the price to 0 makes the
+  gate free and pays the one-off free-gate fee the first time.
 - **Pause** — temporarily stop purchases.
-- **Airdrop** — grant passes directly to addresses (no payment).
+- **Airdrop** — grant passes directly to addresses (free for them; you pay the platform commission a
+  sale would carry).
 - **Freeze** — see below.
 
 ### Freeze (irreversible)

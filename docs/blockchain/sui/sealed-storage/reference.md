@@ -7,7 +7,7 @@ from the `@meddleware/seal-client` SDK — see [SDK API](#sdk-api).
 
 | Thing | ID |
 | --- | --- |
-| `seal_policies` package | `0x9f0563bfe42fbd29932cd280cc47efe17f5339b4dc569eb110114665eecc231e` |
+| `seal_policies` package | `0x42cc181f851ef702c1fddc9b925553f03b71784edff49d80fbc260055f86d612` |
 
 Mainnet is pending; the app is enabled by configuration once the package and key-server committee are
 available.

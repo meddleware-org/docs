@@ -9,3 +9,5 @@ docs/**/api
 # generated at build time (gen:onchain)
 docs/blockchain/sui/onchain
 docs/.vitepress/generated
+# Local-only env files must never reach the build (Vite loads .env*.local in every mode).
+.env*.local

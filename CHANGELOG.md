@@ -2,6 +2,13 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.21] — 2026-10-01
+
+- Runs on static-server 0.1.3 (per-response CSP script nonce for Cloudflare JavaScript
+  Detections, HSTS, Permissions-Policy).
+- `@meddleware/seal-client` 0.0.10 (seal_policies v2 in the generated references); dropped the
+  duplicate devDependency entry.
+
 ## [0.0.6] — 2026-09-18
 
 Landing page and sidebar polish.

@@ -50,10 +50,13 @@ Workers and Rust); running one is covered in the forthcoming developer documenta
 
 ## SDK API
 
-The full `@meddleware/nft-gate-client` API — PTB builders (`create_gate`, `purchase`, `consume`,
-airdrop, admin setters), ownership reads, and the challenge/proof helpers — is generated here:
+Two SDKs, each with a generated reference:
 
-- [NFT-gate client API](./api/)
+- [Access-gate client API](./api/) — `@meddleware/access-gate-client`: transaction builders
+  (`create_gate`, `purchase`, `consume`, airdrop, admin setters), ownership and gate reads, typed
+  events, abort messages, and the deployed ids per network.
+- [Gateway wire-protocol API](./wire-api/) — `@meddleware/nft-gate-client`: the challenge and
+  access-proof helpers a gateway verifies.
 
 ::: tip Deploying the gateway or integrating the SDK?
 See the [Access Gate integration guide](https://dev.meddleware.co.uk/sui/access-gate/) on the developer site — SDK setup, purchase/verify flow, challenge/proof protocol, and Rust/Worker gateway deployment.

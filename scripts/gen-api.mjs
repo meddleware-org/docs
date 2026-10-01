@@ -23,7 +23,8 @@ const docsRoot = join(root, 'docs')
 const targets = [
   { pkg: '@meddleware/walrus-client', out: 'blockchain/sui/walrus-storage/api', name: 'Walrus client API' },
   { pkg: '@meddleware/seal-client', out: 'blockchain/sui/sealed-storage/api', name: 'Seal client API' },
-  { pkg: '@meddleware/nft-gate-client', out: 'blockchain/sui/access-gate/api', name: 'NFT-gate client API' },
+  { pkg: '@meddleware/access-gate-client', out: 'blockchain/sui/access-gate/api', name: 'Access-gate client API' },
+  { pkg: '@meddleware/nft-gate-client', out: 'blockchain/sui/access-gate/wire-api', name: 'Gateway wire-protocol API' },
 ]
 
 // Resolve the SDK's TypeScript entry. These packages export their `.` as `./src/index.ts`

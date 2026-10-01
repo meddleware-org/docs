@@ -15,6 +15,7 @@
   "include": [
     "node_modules/@meddleware/seal-client/src",
     "node_modules/@meddleware/walrus-client/src",
-    "node_modules/@meddleware/nft-gate-client/src"
+    "node_modules/@meddleware/nft-gate-client/src",
+    "node_modules/@meddleware/access-gate-client/src"
   ]
 }

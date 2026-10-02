@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.24] — 2026-10-02
+
+- Access Gate and Sealed Storage references from `@meddleware/access-gate-client` 0.0.3 (`toU64`,
+  `readIndexerEvents`; parsers return `null` for a malformed object) and `@meddleware/seal-client`
+  0.0.13.
+
 ## [0.0.23] — 2026-10-02
 
 - Wire-protocol reference from `@meddleware/nft-gate-client` 0.0.14: `fetchChallenge` takes

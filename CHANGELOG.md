@@ -2,6 +2,17 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.22] — 2026-10-02
+
+- Testnet identifiers: the version-gated `access_gate` `0xa55789…` (`PlatformConfig` `0x53a325…`) and
+  `seal_policies` `0x61c4aa…` (with its `PolicyConfig` `0xa5013e…`); the DAO reference shows the
+  `PlatformConfig.version` field. On-chain pages from `@meddleware/access-gate-sui` 0.0.5 and
+  `@meddleware/seal-policies-sui` 0.0.6.
+- Current SDKs in the generated references: `access-gate-client` 0.0.2, `seal-client` 0.0.11,
+  `nft-gate-client` 0.0.13 (the wire-protocol package only), `walrus-client` 0.0.21.
+- The generated wire-protocol reference (`access-gate/wire-api/`) is git-ignored like the other
+  generated API pages.
+
 ## [0.0.21] — 2026-10-01
 
 - Runs on static-server 0.1.3 (per-response CSP script nonce for Cloudflare JavaScript

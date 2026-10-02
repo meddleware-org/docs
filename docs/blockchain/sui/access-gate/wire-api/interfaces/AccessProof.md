@@ -1,6 +1,6 @@
 # Interface: AccessProof
 
-Defined in: types.ts:119
+Defined in: types.ts:15
 
 The proof a client presents to a gateway to demonstrate gated access.
 
@@ -10,7 +10,7 @@ The proof a client presents to a gateway to demonstrate gated access.
 
 > **address**: `string`
 
-Defined in: types.ts:121
+Defined in: types.ts:17
 
 The Sui address claimed by the caller.
 
@@ -20,10 +20,10 @@ The Sui address claimed by the caller.
 
 > `optional` **consumeDigest?**: `string`
 
-Defined in: types.ts:130
+Defined in: types.ts:26
 
-For single-use gates: the digest of the on-chain `consume(nft, nonce)` transaction, so
-the gateway can confirm the matching `AccessConsumedEvent` before allowing the request.
+For single-use gates: the digest of the on-chain `consume` transaction, so the gateway can
+confirm the matching `AccessConsumedEvent` before allowing the request.
 
 ***
 
@@ -31,7 +31,7 @@ the gateway can confirm the matching `AccessConsumedEvent` before allowing the r
 
 > **nonce**: `string`
 
-Defined in: types.ts:123
+Defined in: types.ts:19
 
 The challenge nonce that was signed.
 
@@ -41,6 +41,6 @@ The challenge nonce that was signed.
 
 > **signature**: `string`
 
-Defined in: types.ts:125
+Defined in: types.ts:21
 
 Base64 personal-message signature over [personalMessageForNonce](../functions/personalMessageForNonce.md).

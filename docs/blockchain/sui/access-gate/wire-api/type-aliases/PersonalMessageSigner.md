@@ -2,7 +2,7 @@
 
 > **PersonalMessageSigner** = (`message`) => `Promise`\<\{ `signature`: `string`; \}\>
 
-Defined in: proof.ts:70
+Defined in: proof.ts:78
 
 A wallet-provided personal-message signer (e.g. wallet-standard `sui:signPersonalMessage`).
 

@@ -30,7 +30,10 @@ export default defineConfig({
   ignoreDeadLinks: [/\/api\//],
   // Match the estate's dark-first aesthetic; users can still toggle.
   appearance: 'dark',
-  head: [['meta', { name: 'theme-color', content: '#5e1622' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['meta', { name: 'theme-color', content: '#5e1622' }],
+  ],
 
   themeConfig: {
     search: { provider: 'local' },

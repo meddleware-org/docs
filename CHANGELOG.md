@@ -2,6 +2,13 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.23] — 2026-10-02
+
+- Wire-protocol reference from `@meddleware/nft-gate-client` 0.0.14: `fetchChallenge` takes
+  `timeoutMs` (10 s default) and requires an `https:` gateway host. Walrus reference from
+  `@meddleware/walrus-client` 0.0.22.
+- Ships the brand favicon (`/favicon.svg`).
+
 ## [0.0.22] — 2026-10-02
 
 - Testnet identifiers: the version-gated `access_gate` `0xa55789…` (`PlatformConfig` `0x53a325…`) and

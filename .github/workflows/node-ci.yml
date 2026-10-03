@@ -68,6 +68,7 @@ jobs:
             --root-dir ${{ github.workspace }}/docs
             --scheme https
             --scheme http
+            --exclude ^https://www\.npmjs\.com/
             docs/**/*.md
           fail: true
 
@@ -90,6 +91,8 @@ jobs:
       - name: Generate API docs
         run: npm run gen:api
 
+      # npmjs.com answers 403 to CI runners (bot protection), so its package pages are excluded;
+      # the packages themselves are installed from the registry by every build.
       - name: External link check (blocking)
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
@@ -102,5 +105,6 @@ jobs:
             --root-dir ${{ github.workspace }}/docs
             --scheme https
             --scheme http
+            --exclude ^https://www\.npmjs\.com/
             docs/**/*.md
           fail: true

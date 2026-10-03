@@ -65,7 +65,8 @@ jobs:
             --max-retries 3
             --retry-wait-time 2
             --accept 200,206,429
-            --root-dir docs
+            --scheme https
+            --scheme http
             docs/**/*.md
           fail: true
 
@@ -97,6 +98,7 @@ jobs:
             --max-retries 3
             --retry-wait-time 2
             --accept 200,206,429
-            --root docs
+            --scheme https
+            --scheme http
             docs/**/*.md
           fail: true

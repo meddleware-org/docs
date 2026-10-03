@@ -29,7 +29,7 @@ source:
 ::: warning Event pruning
 Sui testnet prunes old events after ~3 months. Systems that need a reliable gate list should read
 **`AdminCap` ownership → `Gate`** rather than replaying `GateCreatedEvent` (this is what the
-[DAO console](/blockchain/sui/dao/) does).
+[Treasury console](/blockchain/sui/treasury/) does).
 :::
 
 ## Gateway (nft-gate)

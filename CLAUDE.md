@@ -4,7 +4,7 @@
 
 The user-facing documentation site for the Meddleware Sui tools (`docs.meddleware.co.uk`), built with
 VitePress. Static content only — no wallet, no chain reads, no accounting logic. One site with a
-section per service (DAO, Walrus Storage, Sealed Storage, Access Gate).
+section per service (Walrus Storage, Sealed Storage, Access Gate, Treasury; DAO is a retired note).
 
 ## Architectural invariants
 
@@ -52,8 +52,8 @@ also has a top-level "Developers →" link.
 | `docs/.vitepress/theme/` | Default theme + design-token brand overrides (`custom.css`). |
 | `scripts/gen-api.mjs` | TypeDoc → Markdown SDK reference per service (resilient). |
 | `docs/<service>/` | Per-service `index.md` (overview), `using.md`, `reference.md`, etc. |
-| `Dockerfile` | node:22 build → static-server runtime (no VITE_* args). |
-| `.github/workflows/publish.yml` | npm OIDC publish (`@meddleware/docs`, `NPM_PUBLISH` opt-in) + multi-arch image build → merge → cosign → attest. |
+| `Dockerfile` | node:24 build → static-server runtime with `CLEAN_URLS` + `NOT_FOUND_PAGE` (no VITE_* args, no SPA fallback). |
+| `.github/workflows/npm-publish.yml`, `docker-publish.yml` | npm OIDC publish (`@meddleware/docs`, `NPM_PUBLISH` opt-in); multi-arch image build → merge → cosign → attest. |
 
 ## Deploy
 

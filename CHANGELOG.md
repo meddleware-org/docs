@@ -2,6 +2,19 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.25] — 2026-10-03
+
+- **Treasury** section (`/blockchain/sui/treasury/`, overview and reference) replaces the DAO section,
+  matching the live Treasury console; the DAO page is a short "retired" note. The reference lists the
+  `PlatformConfig` fields the console reads, the commission formula, the total-balance rule and the
+  two events it shows (the Burned event was never read).
+- Tool tables link the dashboard (`dash.`), Token Deployer and Treasury; the retired `sui-dao.` and
+  the never-deployed `sui.` hub are gone.
+- Served with clean URLs and a real 404 page (static-server 0.1.4 `CLEAN_URLS`, `NOT_FOUND_PAGE`):
+  a direct visit to a page returns that page, and an unknown path returns 404 instead of the home
+  page with 200.
+- `@meddleware/*` dependencies at their latest versions.
+
 ## [0.0.24] — 2026-10-02
 
 - Access Gate and Sealed Storage references from `@meddleware/access-gate-client` 0.0.3 (`toU64`,

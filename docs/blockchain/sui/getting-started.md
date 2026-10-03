@@ -28,20 +28,21 @@ fee in SUI. On testnet this is free from the faucet; on mainnet it's real but ty
 
 ## 3. Open a tool and connect
 
-Each tool has its own subdomain, and they're all linked from the **tools hub**:
+Each tool has its own subdomain, and they're all available together in the **dashboard**:
 
 | Tool | App |
 | --- | --- |
-| Tools hub | [sui.meddleware.co.uk](https://sui.meddleware.co.uk) |
-| DAO console | [sui-dao.meddleware.co.uk](https://sui-dao.meddleware.co.uk) |
+| Dashboard (every tool, one wallet connection) | [dash.meddleware.co.uk](https://dash.meddleware.co.uk) |
 | Walrus Storage | [sui-walrus.meddleware.co.uk](https://sui-walrus.meddleware.co.uk) |
 | Sealed Storage | [sui-seal.meddleware.co.uk](https://sui-seal.meddleware.co.uk) |
 | Access Gate | [sui-access-gate.meddleware.co.uk](https://sui-access-gate.meddleware.co.uk) |
+| Token Deployer | [sui-token-deployer.meddleware.co.uk](https://sui-token-deployer.meddleware.co.uk) |
+| Treasury | [treasury.meddleware.co.uk](https://treasury.meddleware.co.uk) |
 
-Click **Connect** and approve the connection in your wallet. The tools hub shares one wallet
+Click **Connect** and approve the connection in your wallet. The dashboard shares one wallet
 connection across every tool embedded in it.
 
-- **Browsing** the [DAO console](/blockchain/sui/dao/) needs **no wallet** — it's read-only.
+- **Browsing** the [Treasury console](/blockchain/sui/treasury/) needs **no wallet** — it's read-only.
 - **Uploading, encrypting, buying, or managing** needs a connected wallet to sign transactions.
 
 ## 4. Understand what's on-chain
@@ -55,5 +56,6 @@ the chain says. Anything an app displays can be independently verified on a
 ## Next steps
 
 - **[How the tools fit together](/blockchain/sui/architecture)** — the big picture.
-- Jump into a tool: [DAO](/blockchain/sui/dao/) · [Walrus Storage](/blockchain/sui/walrus-storage/) ·
-  [Sealed Storage](/blockchain/sui/sealed-storage/) · [Access Gate](/blockchain/sui/access-gate/).
+- Jump into a tool: [Walrus Storage](/blockchain/sui/walrus-storage/) ·
+  [Sealed Storage](/blockchain/sui/sealed-storage/) · [Access Gate](/blockchain/sui/access-gate/) ·
+  [Treasury](/blockchain/sui/treasury/).

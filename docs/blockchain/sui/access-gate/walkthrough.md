@@ -11,7 +11,7 @@ Manage gates in the [operator console](https://sui-access-gate.meddleware.co.uk)
 
 1. **Connect** your wallet and open **Create gate**.
 2. Set the pass details:
-   - **Name** — shown to buyers and in the DAO console.
+   - **Name** — shown to buyers and in the Treasury console.
    - **Price** (in SUI) — what a buyer pays.
    - **Uses** — `0` for an unlimited membership pass, or `N` for single-use with N uses.
    - **Soulbound** — whether passes are non-transferable.

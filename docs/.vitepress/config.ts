@@ -95,11 +95,11 @@ export default defineConfig({
           ],
         },
         {
-          text: 'DAO',
+          text: 'Treasury',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/blockchain/sui/dao/' },
-            { text: 'Reference', link: '/blockchain/sui/dao/reference' },
+            { text: 'Overview', link: '/blockchain/sui/treasury/' },
+            { text: 'Reference', link: '/blockchain/sui/treasury/reference' },
           ],
         },
         // Canonical on-chain docs (generated from the Move packages — scripts/gen-onchain.mjs).

@@ -8,7 +8,7 @@ hero:
 
 features:
   - title: Sui
-    details: Decentralised storage, threshold encryption, NFT access control, and a transparent DAO console — four tools, one connected platform. Available now on testnet.
+    details: Decentralised storage, threshold encryption, NFT access control, token deployment and a transparent treasury console — one connected platform. Available now on testnet.
     link: /blockchain/sui/
     linkText: Explore
   - title: More blockchains

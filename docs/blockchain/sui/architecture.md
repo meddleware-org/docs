@@ -9,7 +9,7 @@ The four tools are useful on their own, but they're designed to compose. This pa
 | **Access Gate** | NFT passes that prove someone is allowed access | Sui only |
 | **Walrus Storage** | Decentralised file (blob) storage | Sui + Walrus |
 | **Sealed Storage** | Client-side encryption with on-chain access rules | Walrus + Seal + (optionally) Access Gate |
-| **DAO** | A read-only view of the platform: treasury, commission, gates | Access Gate on-chain state |
+| **Treasury** | A read-only view of the platform: treasury, commission, gates | Access Gate on-chain state |
 
 ## Sealed Storage = Walrus + Seal + Access Gate
 
@@ -41,21 +41,21 @@ be **gated** by an Access Gate NFT: you prove you hold a valid pass, and the rel
 upload. A commission on gate purchases funds the service. If you don't need the gated relay, uploads
 fall back to the public relay.
 
-## Where the DAO fits
+## Where the Treasury fits
 
-The **[DAO console](/blockchain/sui/dao/)** doesn't create anything — it *observes*. It reads the platform's
+The **[Treasury console](/blockchain/sui/treasury/)** doesn't create anything — it *observes*. It reads the platform's
 on-chain configuration: the treasury address, the **commission rate** charged on Access Gate
-purchases, the community gates the treasury controls, and a live feed of gate activity (passes sold,
-used, burned). It's the transparency window over the Access Gate economics.
+purchases, the gates the treasury administers, and a live feed of pass activity (passes sold and
+used). It's the transparency window over the Access Gate economics.
 
 ## The commission thread
 
 One number ties the economics together: the **commission** (in basis points) charged on-chain when an
 Access Gate pass is purchased. It's set in a shared `PlatformConfig` object, capped on-chain, routed
-to the treasury, and shown in the DAO console. The web apps can't change it — only an on-chain admin
+to the treasury, and shown in the Treasury console. The web apps can't change it — only an on-chain admin
 capability can. This is the pattern throughout: **economics live in the smart contracts.**
 
 ## Next
 
-- [DAO](/blockchain/sui/dao/) · [Walrus Storage](/blockchain/sui/walrus-storage/) · [Sealed Storage](/blockchain/sui/sealed-storage/) ·
-  [Access Gate](/blockchain/sui/access-gate/)
+- [Walrus Storage](/blockchain/sui/walrus-storage/) · [Sealed Storage](/blockchain/sui/sealed-storage/) ·
+  [Access Gate](/blockchain/sui/access-gate/) · [Treasury](/blockchain/sui/treasury/)

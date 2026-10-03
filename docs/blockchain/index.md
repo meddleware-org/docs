@@ -7,8 +7,8 @@ blockchain-specific documentation.
 
 ### Sui
 
-Four tools, one connected platform — decentralised storage, threshold encryption, NFT access control,
-and a transparent DAO console. Built for Sui's object model and Walrus decentralised storage.
+One connected platform — decentralised storage, threshold encryption, NFT access control, token
+deployment and a transparent treasury console. Built for Sui's object model and Walrus decentralised storage.
 
 **[Go to the Sui docs →](/blockchain/sui/)**
 

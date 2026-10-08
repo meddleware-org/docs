@@ -2,6 +2,11 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.26] — 2026-10-08
+
+- API reference generated from `@mysten/seal` 1.4.17 and `@mysten/walrus` 1.2.32, the versions the
+  SDK clients use (the site pinned older ones).
+
 ## [0.0.25] — 2026-10-03
 
 - **Treasury** section (`/blockchain/sui/treasury/`, overview and reference) replaces the DAO section,

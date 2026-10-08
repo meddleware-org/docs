@@ -2,6 +2,11 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.27] — 2026-10-08
+
+- Access Gate reference: public full nodes keep events for days, not "~3 months" (measured: about
+  5½ days on testnet); the sui-indexer is what keeps history for the apps.
+
 ## [0.0.26] — 2026-10-08
 
 - API reference generated from `@mysten/seal` 1.4.17 and `@mysten/walrus` 1.2.32, the versions the

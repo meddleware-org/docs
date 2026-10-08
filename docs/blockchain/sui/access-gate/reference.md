@@ -27,7 +27,8 @@ source:
   site) — every function, event and abort code.
 
 ::: warning Event pruning
-Sui testnet prunes old events after ~3 months. Systems that need a reliable gate list should read
+Public Sui full nodes keep only a short window of events (about 5½ days on testnet when measured on
+2026-10-08; the operator sets it and it can change). Systems that need a reliable gate list should read
 **`AdminCap` ownership → `Gate`** rather than replaying `GateCreatedEvent` (this is what the
 [Treasury console](/blockchain/sui/treasury/) does).
 :::

@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.28] - 2026-10-09
+
+### Changed
+
+- Testnet identifiers and API reference follow the 2026-10-09 publications (access-gate-client 0.0.8, seal-client 0.0.19, access-gate-sui 0.0.6, seal-policies-sui 0.0.7); the pass kind and soulbound flag are documented as fixed at creation; image base static-server 0.1.6
+
 ## [0.0.27] — 2026-10-08
 
 - Access Gate reference: public full nodes keep events for days, not "~3 months" (measured: about

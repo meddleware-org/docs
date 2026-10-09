@@ -23,6 +23,8 @@ export default defineConfig({
   lang: 'en-GB',
   srcDir,
   outDir,
+  // The project's security audit lives in docs/audit (the audit corpus convention); it is not site content.
+  srcExclude: ['audit/**'],
   cleanUrls: true,
   lastUpdated: false,
   // The per-service `api/` subtrees are generated at build time by scripts/gen-api.mjs (TypeDoc);

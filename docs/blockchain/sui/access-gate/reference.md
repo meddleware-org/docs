@@ -8,8 +8,8 @@ imported from the Move package ([below](#on-chain-contract)); the TypeScript SDK
 
 | Thing | ID |
 | --- | --- |
-| `access_gate` package | `0xa55789d77b8ae41e604c1c2e9ad9f7b034ca69b028ad0f1eee7d7cc8ad886d41` |
-| `PlatformConfig` object | `0x53a325dc1ebd083c80fd5bed77e3e7cc989285283f188835793af3a7bd8504fa` |
+| `access_gate` package | `0xd7ddaa94b74330979b2b618fc81206d160a264f1c9ca148a77fa2144301388c9` |
+| `PlatformConfig` object | `0x3f81489df58233d96798f34ad44de325e1b4df7e4d615affe72ca181969ee7b5` |
 
 Mainnet identifiers are pending.
 

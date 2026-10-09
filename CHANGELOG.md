@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.31] - 2026-10-09
+
+### Changed
+
+- Testnet identifiers now match the 2026-10-09 publications (the previous release built without its docs edits); the audit file is excluded from the site
+
 ## [0.0.30] - 2026-10-09
 
 ### Changed

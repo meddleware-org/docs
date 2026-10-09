@@ -13,8 +13,7 @@ Manage gates in the [operator console](https://sui-access-gate.meddleware.co.uk)
 2. Set the pass details:
    - **Name** — shown to buyers and in the Treasury console.
    - **Price** (in SUI) — what a buyer pays.
-   - **Uses** — `0` for an unlimited membership pass, or `N` for single-use with N uses.
-   - **Soulbound** — whether passes are non-transferable.
+   - **Uses** — `0` for an unlimited membership pass, or `N` for single-use with N uses. This choice and **Soulbound** (whether passes are non-transferable) are fixed once the gate exists; you can change N later, but not between unlimited and single-use.
    - **Auto-burn at zero** — for single-use, whether a spent pass is deleted or kept as a receipt.
 3. Confirm. Creating the gate gives your wallet an **admin capability** (`AdminCap`) for it.
 

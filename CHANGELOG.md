@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.30] - 2026-10-09
+
+### Changed
+
+- Image base static-server 0.1.7 (Go 1.26.9) and an explicit non-root USER; merged tooling updates; the audit file is excluded from the site (srcExclude)
+
 ## [0.0.29] - 2026-10-09
 
 ### Changed

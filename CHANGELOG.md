@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.29] - 2026-10-09
+
+### Changed
+
+- On-chain pages follow sui-token-template 1.0.8: the supply and metadata policies are applied by the coin's own init and recorded in the coin registry
+
 ## [0.0.28] - 2026-10-09
 
 ### Changed

@@ -19,7 +19,7 @@
 **Review date:** 2026-09-19 (first pass) · re-verified 2026-10-03 · re-verified 2026-10-09 · fixes 2026-10-18 (0.0.33)
 **Reviewer:** Internal review
 **Severity ceiling:** Low — static content: no wallet, chain access or secrets. The surfaces are the build-time supply chain, content integrity, and readers following stale links.
-**Status:** re-verified 2026-10-09; 0.0.33 fixes applied 2026-10-18 (commit pending)
+**Status:** re-verified 2026-10-09; 0.0.33 fixes applied 2026-10-18 (commit `11865f9`)
 
 ---
 
@@ -202,7 +202,7 @@ errors. The blocking job was re-run by dispatch after the fix. Re-read 2026-10-0
 
 ### F14 — Testnet ids in the reference pages are typed by hand
 
-**Severity:** Low   **Disposition:** RESOLVED (0.0.33; `scripts/check-onchain-ids.mjs`, `tests/check-onchain-ids.test.mjs`; commit pending)
+**Severity:** Low   **Disposition:** RESOLVED (0.0.33; `scripts/check-onchain-ids.mjs`, `tests/check-onchain-ids.test.mjs`; commit `11865f9`)
 **Where:** `docs/blockchain/sui/access-gate/reference.md:11-12`, `docs/blockchain/sui/sealed-storage/reference.md:10-11`,
 `docs/blockchain/sui/treasury/reference.md:10-11`
 **Issue:** the three "Deployed identifiers (testnet)" tables hold the `access_gate` and `seal_policies`
@@ -232,7 +232,7 @@ drift can no longer ship. Verified with the 0.0.33 lockfile (access-gate-client 
 
 ### F15 — The audit file would ship in the npm package
 
-**Severity:** Low   **Disposition:** RESOLVED (0.0.33; `package.json` `files`, `scripts/check-dist-no-audit.mjs`, `tests/package-contents.test.mjs`; commit pending)
+**Severity:** Low   **Disposition:** RESOLVED (0.0.33; `package.json` `files`, `scripts/check-dist-no-audit.mjs`, `tests/package-contents.test.mjs`; commit `11865f9`)
 **Where:** `package.json` `files` (`"docs"`), `.npmignore`
 **Issue:** `files` whitelists the whole `docs/` tree and `.npmignore` excludes only the generated
 `api/`, `onchain/` and `generated/` subtrees. `npm pack --dry-run` (2026-10-09) lists
@@ -251,7 +251,7 @@ now ends with `scripts/check-dist-no-audit.mjs`, which fails if `dist/` holds a 
 
 ### F16 — The CI workflow has no `npm test` step
 
-**Severity:** Info   **Disposition:** RESOLVED (0.0.33; `npm test` in `node-ci.yml`, `npm-publish.yml` `verify` calls `node-ci.yml`; commit pending)
+**Severity:** Info   **Disposition:** RESOLVED (0.0.33; `npm test` in `node-ci.yml`, `npm-publish.yml` `verify` calls `node-ci.yml`; commit `11865f9`)
 **Where:** `.github/workflows/node-ci.yml`; `docker-publish.yml` `verify` calls it; `npm-publish.yml` `verify`
 **Issue:** `node-ci.yml` runs the audit gate, type-check, the three linters, the build and the licence
 check, but no `npm test`; the image release's `verify` job is a call to it (0.0.32, `8e7c81f`), so unit
@@ -290,7 +290,7 @@ limits; the digest is identical in `config/images.yaml` and the overlay; all ima
 
 ### F18 — A first-party dependency is one release behind
 
-**Severity:** Low   **Disposition:** RESOLVED (0.0.33; commit pending)
+**Severity:** Low   **Disposition:** RESOLVED (0.0.33; commit `11865f9`)
 **Where:** `package.json` (`@meddleware/walrus-client ^0.0.26`, `@meddleware/sui-token-template ^1.0.7`)
 **Issue:** `walrus-client` 0.0.27 is the latest published release (it fixed `fetchOwnedWalrusBlobs`), so
 the generated Walrus reference describes 0.0.26. The template range `^1.0.7` resolves to 1.0.8 through the
@@ -344,7 +344,7 @@ verifies signatures, so it would not run).
 
 ### F22 — The npm publish gate is a subset of CI
 
-**Severity:** Low   **Disposition:** RESOLVED (0.0.33; `npm-publish.yml` `verify` calls `node-ci.yml`; commit pending)
+**Severity:** Low   **Disposition:** RESOLVED (0.0.33; `npm-publish.yml` `verify` calls `node-ci.yml`; commit `11865f9`)
 **Where:** `.github/workflows/npm-publish.yml`
 **Issue:** the npm job's `verify` runs `npm ci`, the audit gate, type-check and `npm run test
 --if-present`, not the full CI workflow (linters, build, licence check). The image release (F17) does
@@ -358,7 +358,7 @@ stand: OIDC-published with provenance, tag == version checked, idempotent, opt-i
 
 ### F23 — `SECURITY.md` scope omits the on-chain generator
 
-**Severity:** Info   **Disposition:** RESOLVED (0.0.33; `SECURITY.md`; commit pending)
+**Severity:** Info   **Disposition:** RESOLVED (0.0.33; `SECURITY.md`; commit `11865f9`)
 **Where:** `SECURITY.md` (Scope, invariant 2)
 **Issue:** the scope and the build-time integrity invariant name `scripts/gen-api.mjs` only;
 `scripts/gen-onchain.mjs` (Move-package pages), `check-csp-inline.mjs` and
@@ -371,7 +371,7 @@ stand: OIDC-published with provenance, tag == version checked, idempotent, opt-i
 
 ### F24 — The reference pages describe the pre-v2 access-proof message
 
-**Severity:** Low   **Disposition:** RESOLVED (0.0.33; the two reference pages; commit pending)
+**Severity:** Low   **Disposition:** RESOLVED (0.0.33; the two reference pages; commit `11865f9`)
 **Where:** `docs/blockchain/sui/access-gate/reference.md:41` and `:50-52`;
 `docs/blockchain/sui/walrus-storage/reference.md:49`
 **Issue:** both pages say the wallet signs `nft-gate:access:<nonce>`. Since nft-gate 0.0.19 and

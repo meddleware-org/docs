@@ -38,16 +38,35 @@ Public Sui full nodes keep only a short window of events (about 5½ days on test
 Any HTTP service can be placed **behind** a gate using the nft-gate reverse proxy. It verifies a
 signed proof and on-chain pass ownership, failing **closed** on any ambiguity.
 
-- **Personal message signed by the wallet:** `nft-gate:access:<nonce>`
+- **Challenge:** `GET /v1/challenge` returns `{ "nonce": "…", "expiresAt": … }`.
+- **Personal message signed by the wallet (v2, audience-bound):** ASCII, one `key:value` line each:
+
+  ```text
+  nft-gate:access:v2
+  origin:<canonical gateway origin>
+  gate:<0x + 64 lower-case hex gate id>
+  network:<localnet|devnet|testnet|mainnet>
+  nonce:<nonce>
+  consume:<base58 transaction digest>      (single-use gateways only)
+  ```
+
+  The gateway rebuilds the message from its **own** origin, gate and network, so a signature is
+  useless at any other gateway, gate or network (and, for single-use passes, for any other
+  consumption).
 - **Proof token** (`Authorization: Bearer …` or `X-Access-Proof`): base64 of
 
 ```json
 { "address": "0x…", "nonce": "…", "signature": "…", "consumeDigest": "…" }
 ```
 
+`consumeDigest` is present only for single-use passes. The token is strict canonical padded base64
+of that JSON; a gateway refuses any other encoding.
+
 The gateway consumes the nonce immediately (single-use replay protection) and, for single-use passes,
 verifies the on-chain consumption by digest. Two wire-identical implementations exist (Cloudflare
-Workers and Rust); running one is covered in the forthcoming developer documentation.
+Workers and Rust). Running one is covered in the developer guide
+[Deploy the NFT gate gateway](https://dev.meddleware.co.uk/sui/access-gate/gateway); the exact message
+construction is in the generated [`personalMessage`](./wire-api/functions/personalMessage) reference.
 
 ## SDK API
 

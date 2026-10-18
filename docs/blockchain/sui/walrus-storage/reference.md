@@ -11,12 +11,12 @@ choose a duration at upload time and can extend later; extension must happen **b
 
 ## Upload result
 
-An upload returns a stable **blob ID** plus registration details. Conceptually:
+An upload returns the stable **blob ID** and the on-chain **blob object ID**:
 
 ```ts
-interface UploadResult {
-  blobId: string          // stable handle used to read the blob back
-  // …registration/certification details (see generated SDK API for exact fields)
+type UploadResult = {
+  blobId: string        // Walrus content-addressed blob ID: the stable handle used to read the blob back
+  blobObjectId: string  // the on-chain Walrus Blob object ID
 }
 ```
 
@@ -25,9 +25,14 @@ interface UploadResult {
 *My Blobs* lists the blobs your address owns:
 
 ```ts
-interface OwnedBlob {
-  blobId: string
-  // …end epoch / size / object id (see generated SDK API for exact fields)
+type OwnedBlob = {
+  objectId: string   // the on-chain Blob object ID
+  blobId: string     // aggregator-URL-compatible blob ID
+  size: number       // bytes
+  startEpoch: number
+  endEpoch: number   // storage expires at this epoch
+  certified: boolean
+  deletable: boolean // blobs are registered permanent by default
 }
 ```
 
@@ -36,8 +41,10 @@ interface OwnedBlob {
 Before confirming, the app estimates cost from the chosen duration:
 
 ```ts
-interface StorageCost {
-  // …storage + write cost in MIST (see generated SDK API for exact fields)
+type StorageCost = {
+  storageCost: bigint // per-epoch storage cost × epochs, in MIST (what an extension pays)
+  writeCost: bigint   // one-time write cost, in MIST (paid on registration, not on extend)
+  totalCost: bigint   // storageCost + writeCost
 }
 ```
 
@@ -46,7 +53,11 @@ interface StorageCost {
 When uploading through the **gated** relay, the client proves NFT ownership with a signed proof. The
 wire format is shared with the [Access Gate](/blockchain/sui/access-gate/) gateway:
 
-- **Personal message signed by the wallet:** `nft-gate:access:<nonce>`
+- **Personal message signed by the wallet (v2, audience-bound):** `nft-gate:access:v2` followed by the
+  gateway origin, gate id, network, nonce and (single-use gates only) the consume digest, one
+  `key:value` line each. The gateway rebuilds it from its own origin, gate and network, so a
+  signature is useless at any other relay, gate or network. The exact text is in the
+  [`personalMessage`](/blockchain/sui/access-gate/wire-api/functions/personalMessage) reference.
 - **Proof token** (sent as `Authorization: Bearer …`): base64 of
 
 ```json

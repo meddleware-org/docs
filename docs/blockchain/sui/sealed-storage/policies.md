@@ -47,6 +47,7 @@ policy picker automatically as they ship.
 
 ::: tip Developer note
 The mechanics of writing a new policy (the on-chain `seal_approve` module + the matching client
-provider) are covered in the forthcoming developer documentation. The
+provider) are covered in the developer guide
+[Writing policies](https://dev.meddleware.co.uk/sui/sealed-storage/policies). The
 [Reference](/blockchain/sui/sealed-storage/reference) lists the current policy identifiers.
 :::

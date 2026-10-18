@@ -2,6 +2,24 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.33] - 2026-10-18
+
+### Added
+
+- Build-time drift check `scripts/check-onchain-ids.mjs`: the build fails when a hand-written page carries a `0x…` id that is not a current testnet id in the `deployments` of `@meddleware/access-gate-client` / `@meddleware/seal-client`, or when a "Deployed identifiers" reference page lacks one of its required ids; `scripts/check-dist-no-audit.mjs` fails the build if an audit page reaches `dist/`
+- A `test` script (vitest) covering both checks and the npm package contents; CI runs it
+
+### Changed
+
+- Dependencies: walrus-client 0.0.28, sui-token-template 1.0.9, nft-gate-client 0.0.17, seal-client 0.0.20, access-gate-client 0.0.9, design-tokens 0.1.10 and the other first-party and tooling dependencies; image base static-server 0.1.8
+- The npm release gate calls the full CI workflow (`node-ci.yml`), as the image release does
+- The Access Gate and Walrus Storage reference pages describe the v2 audience-bound access-proof message (`nft-gate:access:v2`); the Walrus reference result shapes match walrus-client 0.0.28; the "forthcoming developer documentation" notes link to the developer site
+- `SECURITY.md` scope names the on-chain generator and the build checks
+
+### Fixed
+
+- The internal audit tree (`docs/audit/`) is excluded from the npm package
+
 ## [0.0.32] - 2026-10-09
 
 ### Changed

@@ -7,3 +7,6 @@ docs/.vitepress/cache/
 # Generated at build time (gen:onchain) — canonical source lives in the Move package repos.
 docs/blockchain/sui/onchain/
 docs/.vitepress/generated/
+
+# Internal review next to the site source (srcExclude keeps it out of the site; package.json `files` negates it too).
+docs/audit/

@@ -37,6 +37,6 @@ Each tool has a hosted web app:
 New here? **[Getting started with Sui →](/blockchain/sui/getting-started)**
 
 ::: tip Developer documentation
-This site covers using the tools. SDK integration, self-hosting, and white-label deployment are
-covered in the forthcoming developer documentation.
+This site covers using the tools. SDK integration and self-hosting are covered on the
+[developer site](https://dev.meddleware.co.uk/sui/); white-label deployment guidance is still to come.
 :::

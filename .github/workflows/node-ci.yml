@@ -39,6 +39,9 @@ jobs:
       - name: Type-check
         run: npm run type-check
 
+      - name: Unit tests
+        run: npm test
+
       - name: Lint CSS (stylelint)
         run: npm run lint:css
 
@@ -51,6 +54,8 @@ jobs:
       # `vitepress build` fails on dead INTERNAL links by default (ignoreDeadLinks unset), so this
       # step is the internal-strict link gate. `gen:api` runs first (via the build script) so the
       # generated API pages are included.
+      # The build also fails when a reference page's on-chain ids differ from the clients' deployments
+      # (scripts/check-onchain-ids.mjs) or when the built site contains an audit page.
       - name: Build (internal-strict dead-link detection)
         run: npm run build
 

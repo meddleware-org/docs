@@ -23,8 +23,8 @@ The shared object holding platform-wide settings.
   "version": "1",                    // the only package version allowed to act (raised by `migrate`)
   "treasury": "0x…",                 // address that receives commission
   "commission_bps": "20",            // commission in basis points (20 = 0.20%)
-  "min_commission_mist": "1000000",  // floor on a paid purchase's commission
-  "free_gate_fee_mist": "100000000"  // one-off fee for a free (price 0) gate
+  "min_commission_mist": "500000",   // floor on a paid purchase's commission
+  "free_gate_fee_mist": "1000000000" // one-off fee for a free (price 0) gate
 }
 ```
 

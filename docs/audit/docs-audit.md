@@ -646,3 +646,8 @@ fails the image). The production build and both generators run from a clean chec
   - `Dockerfile` on GitHub `main` now pins the `static-server` base at `0.1.9@sha256:af6cc284…edc72` (merged Dependabot docker PR); this repo was not re-released or redeployed for it, so the deployed image is still built on the 0.1.8 base (the stock default CSP added in 0.1.9 is replaced by this repo's own `CONTENT_SECURITY_POLICY`).
   - Dependabot policy encoded in .github/dependabot.yml (majors declined); open PRs merged 2026-10-19
   - `docker-publish.yml`: the private rebuild jobs are replaced by one `mirror-private` job that copies the published quay.io image (and its cosign artifacts) to the self-hosted registry by digest and fails unless the digest and the signature match (build once, promote by digest; committed locally, not yet released; the `PRIVATE_REGISTRY_*` credentials are still unset).
+- 2026-10-19 — fee amounts re-priced from the workspace cost model (`docs/economics/COST_MODEL.md`, D57): the Access
+  Gate and Treasury pages quote a 0.0005 SUI commission floor (minimum paid price 0.005 SUI) and a 1 SUI free-gate
+  fee. Version 0.0.34, commit pending; the generated on-chain and API pages follow once `@meddleware/access-gate-sui`
+  0.0.7 and `@meddleware/walrus-client` 0.0.29 are published and the ranges bumped. Measured with Node 26.12.0:
+  type-check, lint, 11/11 tests and build pass. No disposition changes.

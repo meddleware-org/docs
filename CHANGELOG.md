@@ -2,6 +2,14 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.34] - 2026-10-19
+
+### Changed
+
+- Access Gate and Treasury pages quote the re-priced platform defaults (workspace cost model, decision D57): a
+  0.0005 SUI commission floor (minimum paid price 0.005 SUI) and a 1 SUI free-gate fee. Release together with
+  `@meddleware/access-gate-sui` 0.0.7 and `@meddleware/walrus-client` 0.0.29 (generated on-chain and API pages).
+
 ## [0.0.33] - 2026-10-18
 
 ### Added

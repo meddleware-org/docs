@@ -51,8 +51,8 @@ identity and not resold. The non-transferability is enforced at the contract lev
 ## Commission
 
 Every purchase routes a commission to the platform treasury; the rest goes to the operator. The
-commission is 0.2% of the price, but never less than 0.001 SUI and never more than 10% — so a paid
-pass costs at least 0.01 SUI. A **free** gate instead pays a one-off platform fee (0.1 SUI) when it is
+commission is 0.2% of the price, but never less than 0.0005 SUI and never more than 10% — so a paid
+pass costs at least 0.005 SUI. A **free** gate instead pays a one-off platform fee (1 SUI) when it is
 created or made free, and **airdrops** from a paid gate pay the same commission a sale would. These
 terms are set in shared on-chain config (`PlatformConfig`); operators set only their price.
 

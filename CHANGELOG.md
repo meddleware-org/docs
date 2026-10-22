@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.35] - 2026-10-22
+
+### Changed
+
+- Image base: static-server 0.1.11 (Go 1.26.10 standard library, CVE-2026-111943, so the scan-before-sign gate passes)
+
 ## [0.0.34] - 2026-10-19
 
 ### Changed

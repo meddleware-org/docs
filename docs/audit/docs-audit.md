@@ -61,8 +61,7 @@ Re-verified 2026-10-09 (0.0.32; type-check clean, CSP check over 220 pages, audi
   gates run it; **F18** `walrus-client ^0.0.28` and `sui-token-template ^1.0.9`; **F23** `SECURITY.md`
   names the on-chain generator and the build checks; **F24** both reference pages describe the v2
   audience-bound message.
-- Accepted or maintainer items: **F19** blanket `connect-src https:` (ACCEPTED-RISK, no single fix without a
-  browser probe); **F20** the cosign identity pinned the repository, not the workflow (RESOLVED 2026-10-18: the
+- Accepted or maintainer items: **F19** blanket `connect-src https:` (RESOLVED 2026-10-22, 0.0.36: `connect-src 'self'` after a browser probe); **F20** the cosign identity pinned the repository, not the workflow (RESOLVED 2026-10-18: the
   workspace `verify-digests.sh` default is now workflow-anchored); **F21** registry mirror and credential inventory (DEFERRED, maintainer).
   **F22** (the npm gate was a subset of CI) is RESOLVED in 0.0.33: `npm-publish.yml` `verify` calls
   `node-ci.yml`.
@@ -310,7 +309,7 @@ and the on-chain id check pass with the new packages; the generated reference de
 
 ### F19 — `connect-src` allows any https origin
 
-**Severity:** Info   **Disposition:** ACCEPTED-RISK
+**Severity:** Info   **Disposition:** RESOLVED (`connect-src` only; 2026-10-22, 0.0.36, commit pending; was ACCEPTED-RISK)
 **Where:** `Dockerfile` (`CSP` argument); live header read 2026-10-10
 **Issue:** `connect-src 'self' https:` and `img-src 'self' data: blob: https:` are blanket allowances,
 copied from the application images; the Dockerfile comment justifies them with operator-configured RPC
@@ -320,6 +319,8 @@ and `script-src 'self'` with two hashes and a nonce, no off-origin script (F6) a
 the theme is the control on that; the site holds no secret or session.
 **Remediation / evidence:** accepted for now; tightening `connect-src` to `'self'` is a suggestion that
 needs a browser probe of the local search and the footer first (not done; 2026-10-18: left as is, no single safe fix without that probe).
+
+**Resolution 2026-10-22 (0.0.36, commit pending; live after the release):** the probe was run and the `CSP` argument now reads `connect-src 'self'`. A headless-browser probe (Google Chrome through playwright-core, 2026-10-22) served the production build of this repository with the new policy as a response header (`upgrade-insecure-requests` omitted because the probe ran over plain `http://127.0.0.1`): the home page and a deep page loaded with no `securitypolicyviolation` event, no failed request and no console error; the local search dialog opened, `walrus` returned 16 results and Enter navigated to `/blockchain/sui/walrus-storage/`; the footer (VitePress pager and the `@meddleware/ui` `AppFooter`) rendered; every request was same-origin. A control `fetch('https://example.com/x')` in the same page was blocked by `connect-src` and reported as a violation, so the listener works. Static analysis of `dist/assets` found no `new WebSocket`, `EventSource`, `XMLHttpRequest` or `sendBeacon`, and the only `fetch` words are in API-reference text; the theme source (`DocsLayout.vue`) has no network call. The local search index is a same-origin dynamic `import()` (governed by `script-src`). `tests/csp.test.mjs` pins `connect-src 'self'` and the other restrictive directives (red against the old argument, green now). `img-src ... https:` is a separate allowance and is unchanged (page content may show remote images); it is not part of this finding's fix. Not run: the deployed image behind static-server (the header is the image's `CSP` argument; the probe set the same value on a local server), and no live header read after release.
 
 ### F20 — The cosign identity pins the repository, not the workflow
 
@@ -478,13 +479,13 @@ funds.
 Live headers on `docs.meddleware.co.uk`, read 2026-10-10: `Content-Security-Policy` (`default-src 'self'`,
 `script-src 'self'` with the two VitePress hashes `sha256-2xX7WPAp…`, `sha256-ng8W1FnG…` and a
 per-response nonce, `style-src 'self' 'unsafe-inline'`, `img-src 'self' data: blob: https:`, `connect-src
-'self' https:`, `worker-src 'self' blob:`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`,
+'self' https:` (0.0.36 and later: `'self'`), `worker-src 'self' blob:`, `object-src 'none'`, `base-uri 'self'`, `form-action 'self'`,
 `frame-ancestors 'self'`, `upgrade-insecure-requests`), `Strict-Transport-Security` (1 year,
 includeSubDomains), `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`,
 `Permissions-Policy`, `X-Frame-Options: SAMEORIGIN`. The CSP is static-server's (`CONTENT_SECURITY_POLICY`
 from the `CSP` build argument); no static host and no `_headers` file. `'unsafe-inline'` is for styles
-only. `dev.meddleware.co.uk` serves the same headers. The blanket `https:` in `connect-src` and `img-src`
-is F19. The inline-script rule is enforced at build time by `check-csp-inline.mjs` (SITE and VUE lenses).
+only. `dev.meddleware.co.uk` serves the same headers. The blanket `https:` in `img-src`
+is F19 (the `connect-src` one was removed in 0.0.36). The inline-script rule is enforced at build time by `check-csp-inline.mjs` (SITE and VUE lenses).
 
 ### B.VUE-2 / B.IMG Build inputs and artifacts
 
@@ -585,7 +586,7 @@ fails the image). The production build and both generators run from a clean chec
 - SHOULD add a Token Deployer user page (the tool has none; the app links the docs root).
 - MAY export `MAX_OWNED_BLOB_PAGES` from walrus-client so the API page's link resolves (TypeDoc
   warning).
-- SHOULD tighten `connect-src` to `'self'` after a browser probe of search and the footer (F19).
+- SHOULD tighten `connect-src` to `'self'` after a browser probe of search and the footer (F19). [Done 2026-10-22, 0.0.36.]
 - MAY run a Trivy configuration scan of the Dockerfile and manifests in CI.
 
 ## Open questions (`OQ#`)
@@ -652,3 +653,7 @@ fails the image). The production build and both generators run from a clean chec
   0.0.7 and `@meddleware/walrus-client` 0.0.29 are published and the ranges bumped. Measured with Node 26.12.0:
   type-check, lint, 11/11 tests and build pass. No disposition changes.
 - 2026-10-22 (audit close-out) — release 0.0.35 (`v0.0.35` = `7bb6474`; `Publish (npm)` and `Publish (Docker)` succeeded). Image base: static-server 0.1.11 (Go 1.26.10 standard library, CVE-2026-111943, so the scan-before-sign gate passes; static-server F13). Advisories: `vite` 8.3.5 in the lockfile (GHSA-587h-7wmj-h5pm, `launch-editor`; a transitive build/dev-server dependency, `package-lock.json` only); `markdown-it` updated in the lockfile (GHSA-gfr2-rv44-r23c; transitive, `package-lock.json` only). F19 (the `connect-src` item) stays open as a separate code task. No disposition change. Not re-run in this pass: the unit tests, the build and the audit gate (the tag's own CI and publish runs succeeded).
+- 2026-10-22 (fix wave, 0.0.36, local commit, not released) — F19 RESOLVED for `connect-src`.
+  - **Done:** the Dockerfile `CSP` argument has `connect-src 'self'`; the comment above it says why; `tests/csp.test.mjs` pins it; CHANGELOG 0.0.36. The browser probe is in F19 (search returned 16 results, no violations, a control request blocked).
+  - **Measured:** type-check, lint (css, js, html), vitest (14 tests, 3 files; the new test red before the change), build (including the CSP inline-script check and the dist audit check), `check:licenses` and the audit gate pass. `img-src ... https:` is unchanged.
+  - **Not verified:** the deployed header after release (read it with `curl -sI https://docs.meddleware.co.uk/` once 0.0.36 is deployed).

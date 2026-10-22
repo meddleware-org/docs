@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.36] - 2026-10-22
+
+### Security
+
+- The image's Content-Security-Policy is `connect-src 'self'` (was `'self' https:`): the site's local search and footer load same-origin files only. A headless Chromium probe against the built site under the new policy found search results and the footer working with zero violations, and a deliberate cross-origin `fetch` is blocked. A test pins the directive.
+
 ## [0.0.35] - 2026-10-22
 
 ### Changed

@@ -1,7 +1,7 @@
 # Walrus Storage
 
 Upload files to [Walrus](https://walrus.xyz) — decentralised "blob" storage on Sui — and manage how
-long they live. Open the app at [sui-walrus.meddleware.co.uk](https://sui-walrus.meddleware.co.uk).
+long they live. Open the app at [sui-walrus-storage.meddleware.co.uk](https://sui-walrus-storage.meddleware.co.uk).
 
 ## What it is
 

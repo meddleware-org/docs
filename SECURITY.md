@@ -2,7 +2,7 @@
 
 ## Scope
 
-This policy covers security issues in the `@meddleware/docs` source — the VitePress config and theme
+This policy covers security issues in the `@meddleware/docs-site` source — the VitePress config and theme
 (`docs/.vitepress/**`), the build-time generators and checks (`scripts/gen-api.mjs` TypeDoc autodoc,
 `scripts/gen-onchain.mjs` Move-package pages, `scripts/check-onchain-ids.mjs`,
 `scripts/check-dist-no-audit.mjs`, `scripts/check-csp-inline.mjs`, `scripts/third-party-licenses.mjs`),

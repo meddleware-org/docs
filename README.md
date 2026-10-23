@@ -1,4 +1,4 @@
-# @meddleware/docs
+# @meddleware/docs-site
 
 User-facing documentation for the Meddleware Sui tools, served at
 [`docs.meddleware.co.uk`](https://docs.meddleware.co.uk). Built with [VitePress](https://vitepress.dev).

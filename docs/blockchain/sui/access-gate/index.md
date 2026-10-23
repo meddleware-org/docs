@@ -19,7 +19,7 @@ There are two perspectives:
 
 - You want to **sell access** — a paid community, premium content, a members' area.
 - You want to **gate an API or app** behind on-chain ownership (pair it with the
-  [nft-gate gateway](/blockchain/sui/access-gate/reference), which puts any HTTP service behind a gate).
+  [access-gate gateway](/blockchain/sui/access-gate/reference), which puts any HTTP service behind a gate).
 - You want to gate **encrypted content** — combine it with [Sealed Storage](/blockchain/sui/sealed-storage/), where
   a pass becomes the key.
 - You want **single-use tickets** or **memberships** represented as NFTs.

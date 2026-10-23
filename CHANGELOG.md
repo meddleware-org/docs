@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.37] - 2026-10-24
+
+### Changed
+
+- Renamed from `docs` to `docs-site` (workspace naming convention, `docs/architecture/ADR-0003-naming.md`). No code change beyond names, paths, hostnames and dependency names; the history below keeps the old names.
+
 ## [0.0.36] - 2026-10-22
 
 ### Security

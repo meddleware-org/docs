@@ -33,10 +33,10 @@ Each tool has its own subdomain, and they're all available together in the **das
 | Tool | App |
 | --- | --- |
 | Dashboard (every tool, one wallet connection) | [dash.meddleware.co.uk](https://dash.meddleware.co.uk) |
-| Walrus Storage | [sui-walrus.meddleware.co.uk](https://sui-walrus.meddleware.co.uk) |
-| Sealed Storage | [sui-seal.meddleware.co.uk](https://sui-seal.meddleware.co.uk) |
+| Walrus Storage | [sui-walrus-storage.meddleware.co.uk](https://sui-walrus-storage.meddleware.co.uk) |
+| Sealed Storage | [sui-sealed-storage.meddleware.co.uk](https://sui-sealed-storage.meddleware.co.uk) |
 | Access Gate | [sui-access-gate.meddleware.co.uk](https://sui-access-gate.meddleware.co.uk) |
-| Token Deployer | [sui-token-deployer.meddleware.co.uk](https://sui-token-deployer.meddleware.co.uk) |
+| Token Issuance | [sui-token-issuance.meddleware.co.uk](https://sui-token-issuance.meddleware.co.uk) |
 | Treasury | [treasury.meddleware.co.uk](https://treasury.meddleware.co.uk) |
 
 Click **Connect** and approve the connection in your wallet. The dashboard shares one wallet

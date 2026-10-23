@@ -1,21 +1,21 @@
 # Security Audit — `docs`
 
 **Classification:** Internal security review
-**Project:** `repos/docs` — `@meddleware/docs`, VitePress user documentation (`docs.meddleware.co.uk`)
+**Project:** `repos/docs-site` — `@meddleware/docs-site`, VitePress user documentation (`docs.meddleware.co.uk`)
 **Project type:** Static site (VitePress)
 **Template:** AUDIT_TEMPLATE.md (2026-10-08) + AUDIT_TEMPLATE_TS.md (2026-10-08) + AUDIT_TEMPLATE_VUE.md (2026-10-08, hosting-header rows) + AUDIT_TEMPLATE_IMG.md (2026-10-08) + AUDIT_TEMPLATE_SITE.md (2026-09-30)
-**Package manager / lockfile:** npm 11, committed (also copied into the image for SBOM tools)   **Module format:** ESM (build scripts `.mjs`, VitePress config and theme TypeScript)   **Publish model:** image + npm package (ships `docs/`, `scripts/` and config; `NPM_PUBLISH` opt-in, enabled — `@meddleware/docs` 0.0.33 is on npm)
+**Package manager / lockfile:** npm 11, committed (also copied into the image for SBOM tools)   **Module format:** ESM (build scripts `.mjs`, VitePress config and theme TypeScript)   **Publish model:** image + npm package (ships `docs/`, `scripts/` and config; `NPM_PUBLISH` opt-in, enabled — `@meddleware/docs-site` 0.0.33 is on npm)
 **Runtime targets:** browser (static HTML); Node 24 for the build   **Peer dependencies:** none
 **Generator:** vitepress 2.0.0-alpha.20 (vue 3.5.44, TypeScript 6.0.3), typedoc 0.28.20 with typedoc-plugin-markdown 4.14.0; vitest 5.0.5 (unit tests)
-**Generated sources:** `scripts/gen-api.mjs` — TypeDoc over the installed `@meddleware/walrus-client` 0.0.28, `seal-client` 0.0.20, `access-gate-client` 0.0.9, `nft-gate-client` 0.0.17 (lockfile); `scripts/gen-onchain.mjs` — the Move packages' `docs/onchain` pages from `@meddleware/access-gate-sui` 0.0.6, `seal-policies-sui` 0.0.7, `sui-token-template` 1.0.9 (lockfile; `ONCHAIN_DOCS_ROOT` is a local preview override only)
+**Generated sources:** `scripts/gen-api.mjs` — TypeDoc over the installed `@meddleware/walrus-storage-client` 0.0.28, `sealed-storage-client` 0.0.20, `access-gate-client` 0.0.9, `access-gate-gateway-client` 0.0.17 (lockfile); `scripts/gen-onchain.mjs` — the Move packages' `docs/onchain` pages from `@meddleware/access-gate-sui` 0.0.6, `sealed-storage-sui` 0.0.7, `token-issuance-template-sui` 1.0.9 (lockfile; `ONCHAIN_DOCS_ROOT` is a local preview override only)
 **Audience:** end users (developer integration is `dev.meddleware.co.uk`; the generated SDK API reference is included here by design)
 **Unpublished material:** this audit lives in `docs/audit/` and is excluded from the site by `srcExclude: ['audit/**']` (live `/audit/docs-audit` answers 404); `package.json` `files` negates it for the npm package and the build fails if an audit page reaches `dist/` (F15, 0.0.33)
-**Images:** `quay.io/meddleware-org/docs:0.0.33@sha256:df851d1a230af4ab57fe8f58818f47a90d7875db8b7314c2c5687f5c511db6e6` (Docker Hub mirror, same digest; cosign keyless signature verified 2026-10-18 against the workflow-anchored identity, `verify-digests.sh` 16/16; SPDX SBOM attestation, build provenance). Superseded 0.0.32 was `sha256:b94c5b66…956d`
+**Images:** `quay.io/meddleware-org/docs-site:0.0.33@sha256:df851d1a230af4ab57fe8f58818f47a90d7875db8b7314c2c5687f5c511db6e6` (Docker Hub mirror, same digest; cosign keyless signature verified 2026-10-18 against the workflow-anchored identity, `verify-digests.sh` 16/16; SPDX SBOM attestation, build provenance). Superseded 0.0.32 was `sha256:b94c5b66…956d`
 **Base images:** build `node:24-slim@sha256:0e0ff40c…f9b6`; runtime `quay.io/meddleware-org/static-server:0.1.8@sha256:e32cf42b…4000` in 0.0.33 (the 0.0.32 image deployed 2026-10-09 was on 0.1.7, `sha256:2e227311…2379`, Go 1.26.9)
 **Runtime user:** `USER 65534:65534`   **Runtime FS:** read-only root, no writable mounts
-**Deployed by:** `post-bootstrap/docs/overlays/default`; digest from `config/images.yaml`
+**Deployed by:** `post-bootstrap/docs-site/overlays/default`; digest from `config/images.yaml`
 **Build args:** `CSP` only (the Content-Security-Policy string) — not secret, not a test switch; no `VITE_*`
-**Deployment status:** npm v0.0.33 and image `quay.io/meddleware-org/docs` 0.0.33 serving `docs.meddleware.co.uk` (`sha256:df851d1a…b6e6`; release tag `v0.0.33` = `7476a47`; released, signature verified and deployed 2026-10-18, rollout succeeded; 0.0.32 `sha256:b94c5b66…` was deployed 2026-10-09; live headers, an unknown path (404) and `/THIRD_PARTY_LICENSES` (200) re-checked 2026-10-18; live pages carry the republished testnet ids `access_gate` `0xd7ddaa94…`, PlatformConfig `0x3f81489d…`, `seal_policies` `0x0c8f7349…`, PolicyConfig `0xee0403ba…`)
+**Deployment status:** npm v0.0.33 and image `quay.io/meddleware-org/docs-site` 0.0.33 serving `docs.meddleware.co.uk` (`sha256:df851d1a…b6e6`; release tag `v0.0.33` = `7476a47`; released, signature verified and deployed 2026-10-18, rollout succeeded; 0.0.32 `sha256:b94c5b66…` was deployed 2026-10-09; live headers, an unknown path (404) and `/THIRD_PARTY_LICENSES` (200) re-checked 2026-10-18; live pages carry the republished testnet ids `access_gate` `0xd7ddaa94…`, PlatformConfig `0x3f81489d…`, `seal_policies` `0x0c8f7349…`, PolicyConfig `0xee0403ba…`)
 **Review date:** 2026-09-19 (first pass) · re-verified 2026-10-03 · re-verified 2026-10-09 · fixes 2026-10-18 (0.0.33, released and deployed)
 **Reviewer:** Internal review
 **Severity ceiling:** Low — static content: no wallet, chain access or secrets. The surfaces are the build-time supply chain, content integrity, and readers following stale links.
@@ -58,7 +58,7 @@ Re-verified 2026-10-09 (0.0.32; type-check clean, CSP check over 220 pages, audi
   RESOLVED in 0.0.33 (2026-10-18)**: **F14** `check-onchain-ids.mjs` fails the build when a page's id
   differs from the clients' `deployments`; **F15** the audit tree is negated in `files` and a build check
   fails if an audit page reaches `dist/`; **F16** the site has a vitest suite and CI and both release
-  gates run it; **F18** `walrus-client ^0.0.28` and `sui-token-template ^1.0.9`; **F23** `SECURITY.md`
+  gates run it; **F18** `walrus-storage-client ^0.0.28` and `token-issuance-template-sui ^1.0.9`; **F23** `SECURITY.md`
   names the on-chain generator and the build checks; **F24** both reference pages describe the v2
   audience-bound message.
 - Accepted or maintainer items: **F19** blanket `connect-src https:` (RESOLVED 2026-10-22, 0.0.36: `connect-src 'self'` after a browser probe); **F20** the cosign identity pinned the repository, not the workflow (RESOLVED 2026-10-18: the
@@ -90,7 +90,7 @@ Critical / High / Medium / Low / Info / Positive.
 - **In scope (0.0.32):** `docs/.vitepress/{config.ts,theme/**}`, `docs/**/*.md`,
   `scripts/{gen-api,gen-onchain,check-csp-inline,third-party-licenses}.mjs`, `Dockerfile`, `.dockerignore`,
   workflows, `.github/{audit-gate.mjs,audit-allowlist.json,dependabot.yml}`, `SECURITY.md`,
-  `post-bootstrap/docs/` (read-only).
+  `post-bootstrap/docs-site/` (read-only).
 - **Out of scope:** VitePress and TypeDoc internals; static-server (own audit); the SDKs and Move
   packages whose docs are imported (own audits).
 - **Environment (2026-10-09):** `tsc --noEmit` (clean); `check-csp-inline.mjs` against the 0.0.32
@@ -157,7 +157,7 @@ Cloudflare's script injection and keeps the same two hashes.
 ### F11 — SPA fallback on a multi-page site
 
 **Severity:** Low   **Disposition:** RESOLVED (0.0.25; static-server 0.1.4 F-new)
-**Where:** `Dockerfile`, `post-bootstrap/docs/base/deployment.yaml`
+**Where:** `Dockerfile`, `post-bootstrap/docs-site/base/deployment.yaml`
 **Issue / impact:** VitePress links extensionless URLs (`cleanUrls`); static-server had no clean-URL
 mapping, so with `SPA_FALLBACK=true` a direct visit to `/blockchain/sui/getting-started` returned
 `index.html` (title "Meddleware Docs") and relied on client-side routing to show the page — readers
@@ -175,7 +175,7 @@ page, missing assets plain 404. Re-checked 2026-10-09 on the live site (static-s
 **Where:** `docs/blockchain/**`, `docs/index.md`, sidebar
 **Issue / impact:** the DAO section described a console retired from hosting (its host no longer
 resolves) and governance features that do not exist; tool tables linked `sui.meddleware.co.uk`
-(never deployed) and omitted the Token Deployer and Treasury; the Treasury console's own docs link
+(never deployed) and omitted the Token Issuance and Treasury; the Treasury console's own docs link
 had no page. Readers were sent to dead hosts.
 **Remediation / evidence:** `/blockchain/sui/treasury/` (overview and reference, matching
 treasury-ui's tabs; the reference lists the fields and the two events actually read, the commission
@@ -183,7 +183,7 @@ formula and the total-balance rule); `/blockchain/sui/dao/` is a short "retired"
 `dash.`, the tools and `treasury.`. treasury-ui 0.0.11 points at the new page; dao-ui 0.1.28 and
 treasury-ui no longer link non-existent dev pages. Every app's default docs and dev link was checked
 against the built sites. Re-checked 2026-10-09: no `sui-dao` or `sui.meddleware.co.uk` link remains in
-the tracked Markdown; `dash.`, `treasury.`, `sui-token-deployer.`, `sui-walrus.`, `sui-seal.` and
+the tracked Markdown; `dash.`, `treasury.`, `sui-token-issuance.`, `sui-walrus-storage.`, `sui-sealed-storage.` and
 `sui-access-gate.` answer 200 and `sui-dao.` does not resolve.
 
 ### F13 — Blocking link check failed by construction
@@ -207,8 +207,8 @@ errors. The blocking job was re-run by dispatch after the fix. Re-read 2026-10-0
 **Issue:** the three "Deployed identifiers (testnet)" tables hold the `access_gate` and `seal_policies`
 package ids and the `PlatformConfig` and `PolicyConfig` object ids as literals. The SITE lens takes
 on-chain facts from the canonical record through the generator, not from typed text. The values are correct
-today: they match `Published.toml` of `@meddleware/access-gate-sui` 0.0.6 and `seal-policies-sui` 0.0.7, the
-`deployments` exports of `access-gate-client` 0.0.8 and `seal-client` 0.0.19, and the live pages
+today: they match `Published.toml` of `@meddleware/access-gate-sui` 0.0.6 and `sealed-storage-sui` 0.0.7, the
+`deployments` exports of `access-gate-client` 0.0.8 and `sealed-storage-client` 0.0.19, and the live pages
 (read 2026-10-10: only `0xd7ddaa94…`/`0x3f81489d…` and `0x0c8f7349…`/`0xee0403ba…` on those pages; the
 generated on-chain overview names the superseded `0xa55789…`, `0x1a81ca…`, `0x0bedd0…` only as
 superseded). Nothing detects drift: 0.0.30 shipped without its id edits and 0.0.31 had to follow
@@ -217,7 +217,7 @@ superseded). Nothing detects drift: 0.0.30 shipped without its id edits and 0.0.
 them; a reader copying the id would call a superseded package.
 **Remediation / evidence:** 0.0.33 adds `scripts/check-onchain-ids.mjs`, run by `npm run build` before
 VitePress. It loads `ACCESS_GATE_DEPLOYMENTS` and `SEAL_POLICIES_DEPLOYMENTS` from the installed clients
-(`@meddleware/access-gate-client/deployments`, `@meddleware/seal-client/deployments`; the clients ship
+(`@meddleware/access-gate-client/deployments`, `@meddleware/sealed-storage-client/deployments`; the clients ship
 TypeScript source, which the check transpiles with `typescript`), and fails the build when any
 hand-written page (everything under `docs/` except `audit/`, `api/`, `wire-api/` and the generated
 `onchain/` tree) carries a 32-byte `0x…` id that is not a current testnet id, or when a reference page
@@ -226,7 +226,7 @@ sealed-storage: `seal_policies` package and `PolicyConfig`). It fails closed whe
 cannot be read. Pinned by `tests/check-onchain-ids.test.mjs` (superseded id, missing id, mixed case,
 ignored trees, short literals, missing page) and by a test that runs the check on this repository's real
 pages with the installed clients. The pages stay typed (the tables are short and carry prose); the
-drift can no longer ship. Verified with the 0.0.33 lockfile (access-gate-client 0.0.9, seal-client
+drift can no longer ship. Verified with the 0.0.33 lockfile (access-gate-client 0.0.9, sealed-storage-client
 0.0.20): the three pages match.
 
 ### F15 — The audit file would ship in the npm package
@@ -235,7 +235,7 @@ drift can no longer ship. Verified with the 0.0.33 lockfile (access-gate-client 
 **Where:** `package.json` `files` (`"docs"`), `.npmignore`
 **Issue:** `files` whitelists the whole `docs/` tree and `.npmignore` excludes only the generated
 `api/`, `onchain/` and `generated/` subtrees. `npm pack --dry-run` (2026-10-09) lists
-`docs/audit/docs-audit.md`. The published 0.0.32 and `@meddleware/dev` 0.0.22 tarballs do not contain an
+`docs/audit/docs-audit.md`. The published 0.0.32 and `@meddleware/dev-site` 0.0.22 tarballs do not contain an
 audit (the files were relocated afterwards and are untracked until committed), so the next release would
 be the first to publish one. The site itself is safe: `srcExclude: ['audit/**']`, and the live
 `/audit/docs-audit` answers 404. No build step asserts that the audit page is absent from `dist/`.
@@ -269,7 +269,7 @@ and `package.json` 2026-10-18.
 ### F17 — Image release gate, scan, notices and runtime user
 
 **Severity:** Low   **Disposition:** RESOLVED (0.0.30 `dcbd9db`, 0.0.32 `8e7c81f`)
-**Where:** `.github/workflows/docker-publish.yml`, `Dockerfile`, `scripts/third-party-licenses.mjs`, `post-bootstrap/docs/base/deployment.yaml`
+**Where:** `.github/workflows/docker-publish.yml`, `Dockerfile`, `scripts/third-party-licenses.mjs`, `post-bootstrap/docs-site/base/deployment.yaml`
 **Issue:** the image release was gated by a subset of CI, the published image was not scanned before
 signing, the lockfile was not in the image (the SBOM saw only the base), no third-party licence texts were
 served with the bundled npm code, and the runtime user was only inherited from the base.
@@ -290,21 +290,21 @@ limits; the digest is identical in `config/images.yaml` and the overlay; all ima
 ### F18 — A first-party dependency is one release behind
 
 **Severity:** Low   **Disposition:** RESOLVED (0.0.33; commit `11865f9`)
-**Where:** `package.json` (`@meddleware/walrus-client ^0.0.26`, `@meddleware/sui-token-template ^1.0.7`)
-**Issue:** `walrus-client` 0.0.27 is the latest published release (it fixed `fetchOwnedWalrusBlobs`), so
+**Where:** `package.json` (`@meddleware/walrus-storage-client ^0.0.26`, `@meddleware/token-issuance-template-sui ^1.0.7`)
+**Issue:** `walrus-storage-client` 0.0.27 is the latest published release (it fixed `fetchOwnedWalrusBlobs`), so
 the generated Walrus reference describes 0.0.26. The template range `^1.0.7` resolves to 1.0.8 through the
 lockfile (`npm ls` 2026-10-09), which is what the on-chain pages need, but the range does not say so.
 **Impact:** the Walrus API reference lags the SDK by one patch; a lockfile regeneration could in principle
 resolve either version of the template.
-**Remediation / evidence:** 0.0.33 sets `@meddleware/walrus-client ^0.0.28` (0.0.27 was superseded by
-the time of the fix) and `@meddleware/sui-token-template ^1.0.9` (the range names the version the
+**Remediation / evidence:** 0.0.33 sets `@meddleware/walrus-storage-client ^0.0.28` (0.0.27 was superseded by
+the time of the fix) and `@meddleware/token-issuance-template-sui ^1.0.9` (the range names the version the
 lockfile resolves), and moves every other first-party dependency to its latest published release:
-access-gate-client 0.0.9, seal-client 0.0.20, nft-gate-client 0.0.17, design-tokens 0.1.10 (ui 0.1.31,
-access-gate-sui 0.0.6 and seal-policies-sui 0.0.7 were current). Third-party tooling bumped within its
+access-gate-client 0.0.9, sealed-storage-client 0.0.20, access-gate-gateway-client 0.0.17, design-tokens 0.1.10 (ui 0.1.31,
+access-gate-sui 0.0.6 and sealed-storage-sui 0.0.7 were current). Third-party tooling bumped within its
 range (`@mysten/sui` 2.36.0, `@mysten/seal` 1.5.0, `@mysten/walrus` 1.2.35, eslint 10.13.0, stylelint
 17.16.0, typedoc plugin 4.14.0, vue 3.5.44, ...). Held back deliberately: TypeScript 6 (7.0 is a major),
 `@types/node` 24 (Node 24 LTS), VitePress 2.0.0-alpha.20 (pinned pre-release). The build, the CSP check
-and the on-chain id check pass with the new packages; the generated reference describes walrus-client
+and the on-chain id check pass with the new packages; the generated reference describes walrus-storage-client
 0.0.28.
 
 ### F19 — `connect-src` allows any https origin
@@ -326,7 +326,7 @@ needs a browser probe of the local search and the footer first (not done; 2026-1
 
 **Severity:** Info   **Disposition:** RESOLVED (2026-10-18, workspace `verify-digests.sh` default; was ACCEPTED-RISK)
 **Where:** `bootstrap/images/verify-digests.sh` (workspace); this repository publishes no verify command
-**Issue:** the cluster check accepted any workflow identity of `github.com/meddleware-org/docs`.
+**Issue:** the cluster check accepted any workflow identity of `github.com/meddleware-org/docs-site`.
 **Impact:** a workflow added by someone with write access could have signed an image the check would accept.
 **Remediation / evidence:** fixed in the workspace script on 2026-10-18: the default identity in
 `bootstrap/images/verify-digests.sh` is now `^https://github\.com/meddleware-org/${name}/\.github/workflows/docker-publish\.yml@refs/tags/v`
@@ -380,24 +380,24 @@ stand: OIDC-published with provenance, tag == version checked, idempotent, opt-i
 **Where:** `docs/blockchain/sui/access-gate/reference.md:41` and `:50-52`;
 `docs/blockchain/sui/walrus-storage/reference.md:49`
 **Issue:** both pages say the wallet signs `nft-gate:access:<nonce>`. Since nft-gate 0.0.19 and
-nft-gate-client 0.0.16 (2026-10-08) the signed message is `nft-gate:access:v2`, multi-line, binding the
+access-gate-gateway-client 0.0.16 (2026-10-08) the signed message is `nft-gate:access:v2`, multi-line, binding the
 gateway origin, gate id, network, nonce and (single-use gateways) the consume digest, so a signature is
 useless at any other gateway, gate or network. The Access Gate page also says the developer
 documentation for running a gateway is "forthcoming"; it exists (`dev.meddleware.co.uk/sui/access-gate/gateway`,
 itself behind on v2, dev audit F8).
 **Impact:** readers and integrators learn a message that every current gateway and relay rejects. The
 behaviour is unchanged for end users, who never see the message; the generated wire-protocol API pages
-(from nft-gate-client 0.0.16) are correct.
+(from access-gate-gateway-client 0.0.16) are correct.
 **Remediation / evidence:** the Access Gate page now states the challenge and the v2 message
 (`nft-gate:access:v2`, `origin`, `gate`, `network`, `nonce`, `consume` for single-use gateways; rebuilt by
 the gateway from its own origin, gate and network), the optional `consumeDigest` and the strict padded
 base64 token, and links the developer gateway guide and the generated `personalMessage` reference; the
 Walrus Storage page describes the same v2 message and links the generated reference. Checked against
-`nft-gate-client` 0.0.17 `README` and `vectors.json` semantics (2026-10-18). The "forthcoming developer
+`access-gate-gateway-client` 0.0.17 `README` and `vectors.json` semantics (2026-10-18). The "forthcoming developer
 documentation" notes in the Access Gate reference, the Sui index and the Sealed Storage policies page
 now link the developer site, where those guides exist. The code samples in `walrus-storage/reference.md`
 (`UploadResult`, `OwnedBlob`, `StorageCost`) were hedged sketches that omitted fields; they now match
-walrus-client 0.0.28 exactly (`blobObjectId`, `objectId`/`startEpoch`/`endEpoch`/`certified`/`deletable`,
+walrus-storage-client 0.0.28 exactly (`blobObjectId`, `objectId`/`startEpoch`/`endEpoch`/`certified`/`deletable`,
 `storageCost`/`writeCost`/`totalCost`).
 
 ## Section A — Invariant verification matrix
@@ -415,7 +415,7 @@ walrus-client 0.0.28 exactly (`blobObjectId`, `objectId`/`startEpoch`/`endEpoch`
 | I9 | Drafts and the audit file are absent from every published artefact | `srcExclude: ['audit/**']` (site); `files` negation (npm package); `check-dist-no-audit.mjs` | live `/audit/docs-audit` 404; `npm pack --dry-run` lists no audit entry; `tests/package-contents.test.mjs` | HOLDS — F15 |
 | I10 | The unit tests run on every change and every release | `npm test` in `node-ci.yml`, which both release workflows call | vitest, 11 tests | HOLDS — F16 |
 | I11 | The release ships only what full CI accepted, scanned and signed | `docker-publish.yml` `verify` → `node-ci.yml`; Trivy before cosign | workflow read 2026-10-09 | HOLDS (F17) |
-| I12 | Hand-written protocol descriptions match the shipped wire format | reference pages | read against nft-gate-client 0.0.17 `README` (v2 message) | HOLDS — F24 |
+| I12 | Hand-written protocol descriptions match the shipped wire format | reference pages | read against access-gate-gateway-client 0.0.17 `README` (v2 message) | HOLDS — F24 |
 
 ### Lens categories
 
@@ -444,8 +444,8 @@ walrus-client 0.0.28 exactly (`blobObjectId`, `objectId`/`startEpoch`/`endEpoch`
 | Dependency | Pinned version | Liveness dependency? | CVE / audit status | Notes |
 | --- | --- | --- | --- | --- |
 | `vitepress`, `typedoc` + plugins | vitepress 2.0.0-alpha.20, typedoc 0.28.20, typedoc-plugin-markdown 4.14.0 (lockfile) | build only | clean | VitePress is a pre-release (alpha); the CSP check fails the build when its inline scripts change |
-| `@meddleware/*` clients | access-gate-client `^0.0.9`, seal-client `^0.0.20`, nft-gate-client `^0.0.17`, walrus-client `^0.0.28` (all latest, 2026-10-18) | build only (API pages) | clean | F18 |
-| `@meddleware/access-gate-sui`, `seal-policies-sui`, `sui-token-template` | `^0.0.6`, `^0.0.7`, `^1.0.9` (the lockfile resolves 1.0.9, the latest) | build only (on-chain pages) | clean | F18 |
+| `@meddleware/*` clients | access-gate-client `^0.0.9`, sealed-storage-client `^0.0.20`, access-gate-gateway-client `^0.0.17`, walrus-storage-client `^0.0.28` (all latest, 2026-10-18) | build only (API pages) | clean | F18 |
+| `@meddleware/access-gate-sui`, `sealed-storage-sui`, `token-issuance-template-sui` | `^0.0.6`, `^0.0.7`, `^1.0.9` (the lockfile resolves 1.0.9, the latest) | build only (on-chain pages) | clean | F18 |
 | `@meddleware/ui`, `design-tokens` | `^0.1.31`, `^0.1.10` (latest) | theme | clean | |
 | `@mysten/sui`, `seal`, `walrus` | `^2.36.0` (ADR-0001 baseline), `^1.5.0`, `~1.2.35` | build only (TypeDoc input) | clean | `~1.2.32` is a deliberate tilde so the reference follows the clients' installed SDK (CHANGELOG 0.0.26); no `@mysten/bcs` or wallet-standard; vitest 5.0.5 runs the build-check tests |
 | Link checker | lychee-action pinned by SHA | none | — | CI only |
@@ -504,8 +504,8 @@ verified 2026-10-09 and, against the workflow-anchored identity, 2026-10-18 (F20
 | Input | Version / pin | Used for |
 | --- | --- | --- |
 | vitepress / typedoc | 2.0.0-alpha.20 / 0.28.20 (lockfile) | site build / SDK reference |
-| walrus-client, seal-client, access-gate-client, nft-gate-client | 0.0.28, 0.0.20, 0.0.9, 0.0.17 (lockfile) | `gen-api.mjs` |
-| access-gate-sui, seal-policies-sui, sui-token-template | 0.0.6, 0.0.7, 1.0.9 (lockfile) | `gen-onchain.mjs`; ids cross-checked by `check-onchain-ids.mjs` |
+| walrus-storage-client, sealed-storage-client, access-gate-client, access-gate-gateway-client | 0.0.28, 0.0.20, 0.0.9, 0.0.17 (lockfile) | `gen-api.mjs` |
+| access-gate-sui, sealed-storage-sui, token-issuance-template-sui | 0.0.6, 0.0.7, 1.0.9 (lockfile) | `gen-onchain.mjs`; ids cross-checked by `check-onchain-ids.mjs` |
 | lychee | `lycheeverse/lychee-action` v2.9.0 (SHA) | external-link check |
 
 Latest-ID rule (checked at build time since 0.0.33): the generated on-chain pages and the typed tables show a package id that is both
@@ -546,7 +546,7 @@ fails the image). The production build and both generators run from a clean chec
 - [x] on-chain facts checked against the canonical record — `check-onchain-ids.mjs` fails the build on drift (F14, 0.0.33; `tests/check-onchain-ids.test.mjs`)
 - [x] every test project runs in CI — vitest suite (11 tests) in `node-ci.yml`, called by both release workflows (F16, F22, 0.0.33)
 - [x] the audit file is excluded from the npm package — `files` negation, `npm pack --dry-run` clean, `check-dist-no-audit.mjs` and `tests/package-contents.test.mjs` (F15, 0.0.33)
-- [x] hand-written wire-format text matches nft-gate-client 0.0.17 — v2 audience-bound message on both reference pages (F24, 0.0.33)
+- [x] hand-written wire-format text matches access-gate-gateway-client 0.0.17 — v2 audience-bound message on both reference pages (F24, 0.0.33)
 
 ### pre-mainnet
 
@@ -564,7 +564,7 @@ fails the image). The production build and both generators run from a clean chec
   their latest versions (F18); signed images with SBOM and provenance, Trivy before signing,
   SHA-pinned actions, grouped Dependabot; expiring audit allowlist; publish authority in B.2.
 - **Wire-format coupling** — the site restates the gateway proof message by hand in two reference pages;
-  both describe protocol v2 since 0.0.33 (F24) and link the generated nft-gate-client API pages.
+  both describe protocol v2 since 0.0.33 (F24) and link the generated access-gate-gateway-client API pages.
 - **On-chain-truth boundary** — the site states no accounting; fees and terms come from the generated
   on-chain pages; the typed ids are checked against the clients' records at build time (F14).
 - **Deployment readiness** — Section D.
@@ -583,8 +583,8 @@ fails the image). The production build and both generators run from a clean chec
 
 ## Implementation suggestions (SHOULD / MAY)
 
-- SHOULD add a Token Deployer user page (the tool has none; the app links the docs root).
-- MAY export `MAX_OWNED_BLOB_PAGES` from walrus-client so the API page's link resolves (TypeDoc
+- SHOULD add a Token Issuance user page (the tool has none; the app links the docs root).
+- MAY export `MAX_OWNED_BLOB_PAGES` from walrus-storage-client so the API page's link resolves (TypeDoc
   warning).
 - SHOULD tighten `connect-src` to `'self'` after a browser probe of search and the footer (F19). [Done 2026-10-22, 0.0.36.]
 - MAY run a Trivy configuration scan of the Dockerfile and manifests in CI.
@@ -622,17 +622,17 @@ fails the image). The production build and both generators run from a clean chec
   RESOLVED/Positive with fresh evidence (F11/F12 re-probed live). New: F14 (typed on-chain ids, no drift
   check; DEFERRED), F15 (audit file would ship in the npm package; DEFERRED), F16 (`node-ci.yml` has no
   `npm test` step — the known gap; the site has no tests, so nothing is skipped today; DEFERRED), F17
-  (release gate, Trivy, lockfile, notices, `USER 65534`; RESOLVED 0.0.30–0.0.32), F18 (`walrus-client`
+  (release gate, Trivy, lockfile, notices, `USER 65534`; RESOLVED 0.0.30–0.0.32), F18 (`walrus-storage-client`
   one release behind, template range; DEFERRED), F19 (blanket `connect-src`; ACCEPTED-RISK), F20
   (cosign identity; ACCEPTED-RISK), F21 (mirror and credentials; DEFERRED, maintainer), F22 (npm gate
   subset; ACCEPTED-RISK), F23 (`SECURITY.md` scope; DEFERRED), F24 (reference pages describe the pre-v2
-  access-proof message; DEFERRED). Verified: sui-token-template resolves
+  access-proof message; DEFERRED). Verified: token-issuance-template-sui resolves
   1.0.8 in the lockfile; live pages show only the new ids; CSP hash check over 220 pages; audit gate
   1 allowlisted / 0 open. Section D ticked with evidence; unticked: the next-patch items and the
   mainnet/maintainer items.
 - 2026-10-18 — fix wave, 0.0.33: F14 (build-time on-chain id check), F15 (`files` negation and a `dist/`
-  check), F16 (vitest suite run by `node-ci.yml`), F18 (dependency bump; walrus-client 0.0.28,
-  sui-token-template 1.0.9, access-gate-client 0.0.9, seal-client 0.0.20, nft-gate-client 0.0.17,
+  check), F16 (vitest suite run by `node-ci.yml`), F18 (dependency bump; walrus-storage-client 0.0.28,
+  token-issuance-template-sui 1.0.9, access-gate-client 0.0.9, sealed-storage-client 0.0.20, access-gate-gateway-client 0.0.17,
   design-tokens 0.1.10), F22 (`npm-publish.yml` `verify` calls `node-ci.yml`), F23 (`SECURITY.md`) and F24
   (v2 access-proof message on two reference pages; Walrus result shapes made exact) RESOLVED; image base
   static-server 0.1.8 (`sha256:e32cf42b…4000`, tag verified on quay.io). F19 and F20 stay ACCEPTED-RISK (F19
@@ -650,10 +650,11 @@ fails the image). The production build and both generators run from a clean chec
 - 2026-10-19 — fee amounts re-priced from the workspace cost model (`docs/economics/COST_MODEL.md`, D57): the Access
   Gate and Treasury pages quote a 0.0005 SUI commission floor (minimum paid price 0.005 SUI) and a 1 SUI free-gate
   fee. Version 0.0.34, commit pending; the generated on-chain and API pages follow once `@meddleware/access-gate-sui`
-  0.0.7 and `@meddleware/walrus-client` 0.0.29 are published and the ranges bumped. Measured with Node 26.12.0:
+  0.0.7 and `@meddleware/walrus-storage-client` 0.0.29 are published and the ranges bumped. Measured with Node 26.12.0:
   type-check, lint, 11/11 tests and build pass. No disposition changes.
 - 2026-10-22 (audit close-out) — release 0.0.35 (`v0.0.35` = `7bb6474`; `Publish (npm)` and `Publish (Docker)` succeeded). Image base: static-server 0.1.11 (Go 1.26.10 standard library, CVE-2026-111943, so the scan-before-sign gate passes; static-server F13). Advisories: `vite` 8.3.5 in the lockfile (GHSA-587h-7wmj-h5pm, `launch-editor`; a transitive build/dev-server dependency, `package-lock.json` only); `markdown-it` updated in the lockfile (GHSA-gfr2-rv44-r23c; transitive, `package-lock.json` only). F19 (the `connect-src` item) stays open as a separate code task. No disposition change. Not re-run in this pass: the unit tests, the build and the audit gate (the tag's own CI and publish runs succeeded).
 - 2026-10-22 (fix wave, 0.0.36, local commit, not released) — F19 RESOLVED for `connect-src`.
   - **Done:** the Dockerfile `CSP` argument has `connect-src 'self'`; the comment above it says why; `tests/csp.test.mjs` pins it; CHANGELOG 0.0.36. The browser probe is in F19 (search returned 16 results, no violations, a control request blocked).
   - **Measured:** type-check, lint (css, js, html), vitest (14 tests, 3 files; the new test red before the change), build (including the CSP inline-script check and the dist audit check), `check:licenses` and the audit gate pass. `img-src ... https:` is unchanged.
   - **Not verified:** the deployed header after release (read it with `curl -sI https://docs.meddleware.co.uk/` once 0.0.36 is deployed).
+- 2026-10-24 — repository renamed from `docs` to `docs-site` (workspace naming convention, `docs/architecture/ADR-0003-naming.md`): package, image, host and path names updated throughout. No finding, disposition or evidence changed.

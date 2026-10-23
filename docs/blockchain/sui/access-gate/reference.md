@@ -33,9 +33,9 @@ Public Sui full nodes keep only a short window of events (about 5½ days on test
 [Treasury console](/blockchain/sui/treasury/) does).
 :::
 
-## Gateway (nft-gate)
+## Gateway (access-gate-gateway)
 
-Any HTTP service can be placed **behind** a gate using the nft-gate reverse proxy. It verifies a
+Any HTTP service can be placed **behind** a gate using the access-gate-gateway reverse proxy. It verifies a
 signed proof and on-chain pass ownership, failing **closed** on any ambiguity.
 
 - **Challenge:** `GET /v1/challenge` returns `{ "nonce": "…", "expiresAt": … }`.
@@ -75,7 +75,7 @@ Two SDKs, each with a generated reference:
 - [Access-gate client API](./api/) — `@meddleware/access-gate-client`: transaction builders
   (`create_gate`, `purchase`, `consume`, airdrop, admin setters), ownership and gate reads, typed
   events, abort messages, and the deployed ids per network.
-- [Gateway wire-protocol API](./wire-api/) — `@meddleware/nft-gate-client`: the challenge and
+- [Gateway wire-protocol API](./wire-api/) — `@meddleware/access-gate-gateway-client`: the challenge and
   access-proof helpers a gateway verifies.
 
 ::: tip Deploying the gateway or integrating the SDK?

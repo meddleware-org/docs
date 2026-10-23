@@ -1,7 +1,7 @@
 # Sealed Storage reference
 
 Shapes and identifiers behind Sealed Storage. The **exhaustive, always-current API** is auto-generated
-from the `@meddleware/seal-client` SDK — see [SDK API](#sdk-api).
+from the `@meddleware/sealed-storage-client` SDK — see [SDK API](#sdk-api).
 
 ## Deployed identifiers (testnet)
 
@@ -59,7 +59,7 @@ trusted as proof of who made the content. Its exact shape is in the
 
 ## SDK API
 
-The full `@meddleware/seal-client` API — the `SealController`, the policy registry, both built-in
+The full `@meddleware/sealed-storage-client` API — the `SealController`, the policy registry, both built-in
 providers, and the manifest/byte helpers — is generated here:
 
 - [Seal client API](./api/)

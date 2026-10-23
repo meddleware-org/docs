@@ -1,6 +1,6 @@
 # Using Walrus Storage
 
-A walkthrough of the [Walrus Storage app](https://sui-walrus.meddleware.co.uk). You'll need a
+A walkthrough of the [Walrus Storage app](https://sui-walrus-storage.meddleware.co.uk). You'll need a
 [Sui wallet with a little SUI](/blockchain/sui/getting-started).
 
 ## Upload a blob

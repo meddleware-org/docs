@@ -1,6 +1,6 @@
 # Using Sealed Storage
 
-A walkthrough of the [Sealed Storage app](https://sui-seal.meddleware.co.uk). You'll need a
+A walkthrough of the [Sealed Storage app](https://sui-sealed-storage.meddleware.co.uk). You'll need a
 [Sui wallet](/blockchain/sui/getting-started); browsing policies needs nothing, but decrypting requires a signature.
 
 ## Encrypt and store

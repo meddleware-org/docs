@@ -1,7 +1,7 @@
 # Walrus Storage reference
 
 Shapes and identifiers behind the Walrus Storage app. Conceptual here; the **exhaustive, always-current
-API** is auto-generated from the `@meddleware/walrus-client` SDK — see [SDK API](#sdk-api).
+API** is auto-generated from the `@meddleware/walrus-storage-client` SDK — see [SDK API](#sdk-api).
 
 ## Blob lifetime
 
@@ -69,7 +69,7 @@ The relay verifies the signature and on-chain pass ownership, then accepts the u
 
 ## SDK API
 
-The full `@meddleware/walrus-client` API — client factory, upload flows, lifetime management, owned-blob
+The full `@meddleware/walrus-storage-client` API — client factory, upload flows, lifetime management, owned-blob
 queries, and relay access helpers — is generated here:
 
 - [Walrus client API](./api/)

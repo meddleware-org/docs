@@ -1,4 +1,4 @@
-# CLAUDE.md — @meddleware/docs
+# CLAUDE.md — @meddleware/docs-site
 
 ## What this is
 
@@ -23,7 +23,7 @@ section per service (Walrus Storage, Sealed Storage, Access Gate, Treasury; DAO 
   runs TypeDoc over the SDK packages into each service's `api/` subtree (git-ignored, built fresh).
   Prose is written by hand, seeded from the packages' READMEs/CLAUDE.md.
 - **On-chain docs are imported, never authored here.** For the Sui Move packages
-  (`access-gate-sui`, `seal-policies-sui`, `sui-token-template`) the canonical on-chain docs live in
+  (`access-gate-sui`, `sealed-storage-sui`, `token-issuance-template-sui`) the canonical on-chain docs live in
   each package repo (`docs/onchain/*.md` + `manifest.json`) and ship in its npm package.
   `scripts/gen-onchain.mjs` (run by `build`/`dev`) copies the pages the manifest assigns to this site
   into a git-ignored subtree and generates the sidebar (`docs/.vitepress/generated/`). Resolution is
@@ -40,8 +40,8 @@ This site is **user-facing** — *what/how/when* for end users. **Out of scope**
 your app" tutorials, and white-label operator guides. The auto-generated **SDK API reference is
 included** here (useful to users/bots), just without the integration how-to.
 
-The sister developer site lives at `dev.meddleware.co.uk` (package: `repos/dev/`, k8s:
-`post-bootstrap/dev/`). Each service's `reference.md` links into it via a `:::tip` callout. The nav
+The sister developer site lives at `dev.meddleware.co.uk` (package: `repos/dev-site/`, k8s:
+`post-bootstrap/dev-site/`). Each service's `reference.md` links into it via a `:::tip` callout. The nav
 also has a top-level "Developers →" link.
 
 ## Key files
@@ -53,12 +53,12 @@ also has a top-level "Developers →" link.
 | `scripts/gen-api.mjs` | TypeDoc → Markdown SDK reference per service (resilient). |
 | `docs/<service>/` | Per-service `index.md` (overview), `using.md`, `reference.md`, etc. |
 | `Dockerfile` | node:24 build → static-server runtime with `CLEAN_URLS` + `NOT_FOUND_PAGE` (no VITE_* args, no SPA fallback). |
-| `.github/workflows/npm-publish.yml`, `docker-publish.yml` | npm OIDC publish (`@meddleware/docs`, `NPM_PUBLISH` opt-in); multi-arch image build → merge → cosign → attest. |
+| `.github/workflows/npm-publish.yml`, `docker-publish.yml` | npm OIDC publish (`@meddleware/docs-site`, `NPM_PUBLISH` opt-in); multi-arch image build → merge → cosign → attest. |
 
 ## Deploy
 
-Image → `quay.io/meddleware-org/docs`. Wired into the cluster via `config/images.yaml` +
-`post-bootstrap/docs/` (ingress `docs.meddleware.co.uk`) in the platform workspace, then a Cloudflare
+Image → `quay.io/meddleware-org/docs-site`. Wired into the cluster via `config/images.yaml` +
+`post-bootstrap/docs-site/` (ingress `docs.meddleware.co.uk`) in the platform workspace, then a Cloudflare
 Tunnel public hostname. See the platform repo's `docs/images/IMAGES.md` and
 `docs/networking/CLOUDFLARE.md`.
 

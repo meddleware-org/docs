@@ -2,7 +2,7 @@
 
 Encrypt a file in your browser, store the ciphertext on [Walrus](/blockchain/sui/walrus-storage/), and let only the
 right people decrypt it — with the access rule enforced **on-chain**. Open the app at
-[sui-seal.meddleware.co.uk](https://sui-seal.meddleware.co.uk).
+[sui-sealed-storage.meddleware.co.uk](https://sui-sealed-storage.meddleware.co.uk).
 
 ## What it is
 

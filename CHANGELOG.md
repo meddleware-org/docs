@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.39] - 2026-10-24
+
+### Changed
+
+- Dependencies on the latest package releases (`access-gate-sui` 0.0.9, `access-gate-client` 0.0.11, `access-gate-gateway-client` 0.0.20, `ui` 0.1.33); generated pages use the renamed package and service names (ADR-0003).
+
 ## [0.0.38] - 2026-10-24
 
 ### Fixed

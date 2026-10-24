@@ -65,7 +65,7 @@ of that JSON; a gateway refuses any other encoding.
 The gateway consumes the nonce immediately (single-use replay protection) and, for single-use passes,
 verifies the on-chain consumption by digest. Two wire-identical implementations exist (Cloudflare
 Workers and Rust). Running one is covered in the developer guide
-[Deploy the NFT gate gateway](https://dev.meddleware.co.uk/sui/access-gate/gateway); the exact message
+[Deploy the access-gate gateway](https://dev.meddleware.co.uk/sui/access-gate/gateway); the exact message
 construction is in the generated [`personalMessage`](./wire-api/functions/personalMessage) reference.
 
 ## SDK API

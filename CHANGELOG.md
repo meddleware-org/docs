@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.40] - 2026-10-24
+
+### Fixed
+
+- The link to the gateway guide reads "Deploy the access-gate gateway" (it still said "NFT gate gateway").
+
 ## [0.0.39] - 2026-10-24
 
 ### Changed

@@ -2,6 +2,12 @@
 
 All notable changes to `@meddleware/docs` are documented here.
 
+## [0.0.38] - 2026-10-24
+
+### Fixed
+
+- The image publish workflow pushed to the old repository name (`docs`); it now publishes `docs-site`, the name `config/images.yaml` pins. No code change.
+
 ## [0.0.37] - 2026-10-24
 
 ### Changed

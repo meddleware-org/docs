@@ -5,7 +5,7 @@ on:
       - "v*"
 
 env:
-  IMAGE: docs
+  IMAGE: docs-site
 
 # VitePress user-facing documentation site.
 # Publishes both:
